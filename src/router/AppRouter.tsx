@@ -6,10 +6,12 @@ import { Header } from "../sections/Header"
 
 export const AppRouter = () => {
   return (
-    <Container maxW="full" bg="red.500">
-        <Header />
-        <HomeScreen />
-        <Footer />
+    <Container maxW="full" bg="blackAlpha.200" p="-0.5">
+      <Header />
+      
+      <HomeScreen />
+      
+      <Footer />
     </Container>
   )
 }

@@ -1,7 +1,10 @@
+import { Container } from "@chakra-ui/react"
 
 
 export const Slider = () => {
   return (
-    <div>Slider</div>
+    <Container>
+      Slider
+    </Container>
   )
 }
