@@ -19,6 +19,7 @@ export const Subscribe = () => {
           mb="4"
           >Para recibir nuestras ofertas al instante en tu Correo o Whatsapp, diligencia los siguientes campos y acepta</Text>
 
+        {/* Subscribe whatsapp */}
         <HStack
           mb="3">
           <Checkbox
@@ -31,7 +32,6 @@ export const Subscribe = () => {
               >Recibe nuestras ofertas por Whatsapp</Text>
         </HStack>
 
-        {/* Subscribe whatsapp */}
         <Flex
           flexDirection="row"
           mb="5"

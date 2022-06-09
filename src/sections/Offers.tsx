@@ -13,7 +13,7 @@ export const Offers = () => {
       mb="20"> 
       <Heading
         mb="4"
-        fontSize="2xl"
+        fontSize="xl"
         color="brand.red"
         >Nuestras últimas ofertas</Heading>
 
