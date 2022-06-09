@@ -1,6 +1,7 @@
 import { Container, Flex } from "@chakra-ui/react";
 import { Offers } from "../sections/Offers";
 import { Payment } from "../sections/Payment";
+import { Quoter } from "../sections/Quoter";
 import { Slider } from "../sections/Slider";
 import { Subscribe } from "../sections/Subscribe";
 
@@ -19,8 +20,8 @@ export const HomeScreen = () => {
           <Subscribe />
           <Payment />
         </Flex>
-          
 
+        <Quoter />
     </Container>
   )
 }
