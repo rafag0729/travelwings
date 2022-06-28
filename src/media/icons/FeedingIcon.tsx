@@ -2,7 +2,6 @@ import { Icon } from '@chakra-ui/react';
 
 
 
-
 export const FeedingIcon = () => {
   return (
         <Icon

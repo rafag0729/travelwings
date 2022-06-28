@@ -1,8 +1,8 @@
 import { Box, Container, Heading, HStack, Image, Text } from "@chakra-ui/react";
-import { FeedingIcon } from "../media/FeedingIcon";
-import { HotelIcon } from "../media/HotelIcon";
-import { PlaneIcon } from "../media/PlaneIcon";
-import { ToursIcon } from "../media/ToursIcon";
+import { FeedingIcon } from "../media/icons/FeedingIcon";
+import { HotelIcon } from "../media/icons/HotelIcon";
+import { PlaneIcon } from "../media/icons/PlaneIcon";
+import { ToursIcon } from "../media/icons/ToursIcon";
 
 
 
