@@ -9,19 +9,21 @@ import { Subscribe } from "../sections/Subscribe";
 
 export const HomeScreen = () => {
   return (
-    <Container maxW="container.lg">
-        <Slider />
-        <Offers />
+    <>
+      <Slider />
+      <Container maxW="container.lg">
+          <Offers />
 
-        <Flex
-          justifyContent="space-between"
-          flexDirection="row"
-          p="0">
-          <Subscribe />
-          <Payment />
-        </Flex>
+          <Flex
+            justifyContent="space-between"
+            flexDirection="row"
+            p="0">
+            <Subscribe />
+            <Payment />
+          </Flex>
 
-        <Quoter />
-    </Container>
+          <Quoter />
+      </Container>
+    </>
   )
 }
