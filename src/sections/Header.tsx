@@ -6,6 +6,11 @@ import logoTW from './../media/logo.png';
 export const Header = () => {
   return (
     <Flex 
+        position="fixed"
+        top="0"
+        left="0"
+        right="0"
+        zIndex="100"
         boxShadow="md"
         justifyContent="center"
         maxW="container.full" 
