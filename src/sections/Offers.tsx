@@ -1,57 +1,43 @@
-import { Box, Container, Heading, HStack, Image, Text } from "@chakra-ui/react";
-import { FeedingIcon } from "../media/icons/FeedingIcon";
-import { HotelIcon } from "../media/icons/HotelIcon";
-import { PlaneIcon } from "../media/icons/PlaneIcon";
-import { ToursIcon } from "../media/icons/ToursIcon";
+import { Container, Flex, Heading } from "@chakra-ui/react";
+import { useEffect, useRef, useState } from "react";
+import { offers as offersData, OffersInt } from '../data/Offers';
+import { OfferBox } from "../components/OfferBox";
 
 
 
 export const Offers = () => {
+
+  const offerRef = useRef([] as OffersInt[]);
+  const [offers, setOffers] = useState<OffersInt[]>([]);
+
+  useEffect(() => {
+    offerRef.current = offersData;
+    setOffers(offersData);
+  }, []);
+
   return (
     <Container
       mx="0"
-      mb="20"> 
+      mt="12"
+      mb="20"
+      minW="full"> 
       <Heading
         mb="4"
         fontSize="xl"
         color="brand.red"
         >Nuestras últimas ofertas</Heading>
 
-      <HStack
-        spacing="3.5">
-        <Box
-          p="4"
-          maxW="min"
-          borderRadius="lg"
-          boxShadow="lg"
-          bgColor="white"
+        <Flex
+          flexDir="row"
+          flexWrap="nowrap"
+          border="1px solid red"
+          overflow="hidden"
+          minW="full"
           >
-          <Text 
-            color="brand.red"
-            fontWeight="700"
-            fontSize="sm"
-            >Santa Marta</Text>
-          <Image alt="Santa Marta"/>
-          <Text
-            color="blackAlpha.800"
-            fontSize="sm"
-            fontWeight="400"
-            >Desde <Text as="em" fontWeight="700">$627.000</Text> por persona en acomodación cuadruple</Text>
-          <Text
-            color="blackAlpha.800"
-            fontSize="sm"
-            fontWeight="700"
-            >Incluye:</Text>
-
-          <HStack>
-            <PlaneIcon />
-            <HotelIcon />
-            <FeedingIcon />
-            <ToursIcon />
-          </HStack>
-        </Box>
-
-      </HStack>
+          {
+            offers.map((o, i) => <OfferBox item={o} key={i}/>)
+          }
+        </Flex>
     </Container>
   )
 }

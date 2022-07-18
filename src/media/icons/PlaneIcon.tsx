@@ -6,7 +6,7 @@ export const PlaneIcon = () => {
   return (
     <Icon 
       w="29px"
-      h="30px"
+      h="28px"
       viewBox="0 0 7.6729165 7.9375002" 
       color="alphaBlack.800">
         <g 

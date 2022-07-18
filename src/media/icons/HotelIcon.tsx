@@ -5,8 +5,8 @@ import { Icon } from "@chakra-ui/react";
 export const HotelIcon = () => {
   return (
       <Icon 
-        w="35"
-        h="21"
+        w="38px"
+        h="30px"
         viewBox="0 0 9.2604165 5.5562501">
             <g
                 clipRule="evenodd" 

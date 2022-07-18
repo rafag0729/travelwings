@@ -6,7 +6,7 @@ export const FeedingIcon = () => {
   return (
         <Icon
             w="25"
-            h="39"
+            h="30"
             viewBox="0 0 6.6145832 10.31875">
             <g
                 clipRule="evenodd" 
