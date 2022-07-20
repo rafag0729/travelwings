@@ -25,7 +25,8 @@ export const OfferBox = ({item}: Props) => {
             borderRadius="lg"
             boxShadow="lg"
             bgColor="white"
-            mr="4"
+            mr="2"
+            ml="2"
             >
             <Image 
                 borderTopLeftRadius="lg"
@@ -33,8 +34,6 @@ export const OfferBox = ({item}: Props) => {
                 src={image}
                 alt={place}/>
             <Flex
-                border="1px"
-                borderColor="red.200"
                 flexDir="column"
                 justifyContent="space-around"
                 alignItems="stretch"

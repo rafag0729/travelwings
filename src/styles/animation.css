@@ -1,0 +1,11 @@
+@keyframes fadeInOut {
+    0% {
+        opacity: .2;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: .2;
+    }
+}
