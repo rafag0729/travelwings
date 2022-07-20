@@ -62,7 +62,7 @@ export const OfferBox = ({item}: Props) => {
                 { includes.fly && <PlaneIcon />}
                 { includes.hotel && <HotelIcon />}
                 { includes.feeding && <FeedingIcon />}
-                { includes.tours.length >= 1 && <ToursIcon />}
+                { includes.tours.length >= 1 && <ToursIcon list={ includes.tours } />}
                 </HStack>
             </Flex>
         </Box>

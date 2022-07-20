@@ -23,7 +23,7 @@ export const offers: OffersInt[] = [
             fly: true,
             hotel: true,
             feeding: true,
-            tours: ['Vuelta a la isla']
+            tours: ['Vuelta a la isla', 'Tour a Jhonny Kay']
         },
     },
     {

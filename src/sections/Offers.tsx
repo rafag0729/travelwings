@@ -45,13 +45,15 @@ export const Offers = () => {
                 >
               { offers.map((o, i) => <OfferBox item={o} key={i}/>) }
               </Flex>
-            
+              
+            {/* Left arrow */}
             <OfferArrows
               xAxis={x}
               side="l"
               action={moveLeft}
             />
 
+            {/* Right arrow */}
             <OfferArrows
               xAxis={x}
               side="r"
