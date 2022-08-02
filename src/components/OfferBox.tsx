@@ -1,4 +1,5 @@
-import { Box, Flex, HStack, Image, Text } from "@chakra-ui/react"
+import { useEffect, useState } from "react"
+import { Box, Button, Flex, HStack, Image, Slide, Text, useDisclosure } from "@chakra-ui/react"
 import { FeedingIcon } from "../media/icons/FeedingIcon"
 import { HotelIcon } from "../media/icons/HotelIcon"
 import { PlaneIcon } from "../media/icons/PlaneIcon"
@@ -17,6 +18,14 @@ export const OfferBox = ({item}: Props) => {
 
     const { image, place, price, room, includes } = item;
 
+    const [roomCost, setRoomCost] = useState('0');
+    const { isOpen, onOpen, onClose } = useDisclosure();
+
+    useEffect(() => {
+        const p = transformRoomCost(price);
+        setRoomCost(p);
+    }, [price])
+
     return (
         <Box
             maxW="3xs"
@@ -27,6 +36,9 @@ export const OfferBox = ({item}: Props) => {
             bgColor="white"
             mr="2"
             ml="2"
+            position="relative"
+            onMouseEnter={onOpen}
+            onMouseLeave={onClose}
             >
             <Image 
                 borderTopLeftRadius="lg"
@@ -48,7 +60,7 @@ export const OfferBox = ({item}: Props) => {
                 color="blackAlpha.800"
                 fontSize="sm"
                 fontWeight="400"
-                >Desde <Text as="em" fontWeight="700">{ transformRoomCost(price) }</Text> por persona en acomodación {room}</Text>
+                >Desde <Text as="em" fontWeight="700">{ roomCost }</Text> por persona en acomodación {room}</Text>
         
                 <Text
                     color="blackAlpha.800"
@@ -65,6 +77,31 @@ export const OfferBox = ({item}: Props) => {
                 { includes.tours.length >= 1 && <ToursIcon list={ includes.tours } />}
                 </HStack>
             </Flex>
+
+            {/* Hovered box */}
+            <Box
+                position="absolute"
+                top="0"
+                minH="7"
+                right="0"
+                left="0"
+                bgColor="red.500"
+                borderRadius="lg"
+                opacity="1"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                transform={`translateY(${isOpen ? '0' : '-100'}%)`}
+                transition="transform 100ms linear"
+            >
+                <Button
+                    size="sm"
+                    colorScheme="red"
+                    minW="full"
+                >
+                    Quiero esta oferta
+                </Button>
+            </Box>
         </Box>
   )
 }

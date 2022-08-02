@@ -9,3 +9,12 @@
         opacity: .2;
     }
 }
+
+@keyframes offersSlider {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}

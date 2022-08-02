@@ -26,7 +26,7 @@ export const OfferArrows = ({ xAxis, side, action }:Props) => {
     <>
         <Icon
             as={ BsFillArrowLeftCircleFill }
-            onClick={action}
+            /* onClick={action} */
             position="absolute"
             left={side === 'l' ? '-6' : 'auto'}
             right={side === 'r' ? '-6' : 'auto'}
@@ -36,10 +36,10 @@ export const OfferArrows = ({ xAxis, side, action }:Props) => {
             transition="opacity 200ms linear"
             fill="red.600"
             animation={ animate ? "fadeInOut 2s linear infinite" : "" }
-            _hover={{
+            /* _hover={{
                 cursor: animate ? 'pointer' : 'not-allowed',
                 opacity: animate ? '1' : '.2',
-            }}
+            }} */
         />
         {   animate && (
                 <Tag
