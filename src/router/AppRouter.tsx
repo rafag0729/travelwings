@@ -1,5 +1,5 @@
 import { Container } from "@chakra-ui/react"
-import { HomeScreen } from "../screens/HomeScreen";
+import { HomeScreen } from "../pages/HomeScreen";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 

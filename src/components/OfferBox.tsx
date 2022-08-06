@@ -5,7 +5,7 @@ import { HotelIcon } from "../media/icons/HotelIcon"
 import { PlaneIcon } from "../media/icons/PlaneIcon"
 import { ToursIcon } from "../media/icons/ToursIcon"
 import { OffersInt } from '../data/Offers';
-import { transformRoomCost } from '../helpers/offers';
+import { transformRoomCost } from '../utils/offers';
 
 
 
