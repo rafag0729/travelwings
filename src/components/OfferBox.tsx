@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
-import { Box, Button, Flex, HStack, Image, Slide, Text, useDisclosure } from "@chakra-ui/react"
+import { Box, Button, Flex, HStack, Image, Text, useDisclosure } from "@chakra-ui/react"
 import { FeedingIcon } from "../media/icons/FeedingIcon"
 import { HotelIcon } from "../media/icons/HotelIcon"
 import { PlaneIcon } from "../media/icons/PlaneIcon"
 import { ToursIcon } from "../media/icons/ToursIcon"
 import { OffersInt } from '../data/Offers';
-import { transformRoomCost } from '../helpers/transformRoomCost';
+import { transformRoomCost } from '../helpers/offers';
 
 
 

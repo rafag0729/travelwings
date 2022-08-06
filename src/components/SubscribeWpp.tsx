@@ -1,9 +1,24 @@
-import { Button, Checkbox, Flex, HStack, Input, Select, Text } from "@chakra-ui/react"
+import { useEffect, useState } from 'react';
+import { Box, Button, Checkbox, Flex, HStack, Input, Select, Text, Image } from "@chakra-ui/react"
+import { getAllCountries } from '../services/getCountries';
+import { getCountriesSpecs } from '../helpers/countries';
+import { CountryReq } from '../interfaces/CountriesInterface';
+
 
 export const SubscribeWpp = () => {
 
-    
+  const [countriesReq, setCountriesReq] = useState<CountryReq[]>([]);
 
+  useEffect(() => {
+    countries();
+  }, [])
+
+  const countries = async() => {
+    const countries = await getAllCountries();
+    const countriesReq = getCountriesSpecs(countries);
+    setCountriesReq(countriesReq);
+  }
+  
 
   return (
     <>
@@ -30,13 +45,27 @@ export const SubscribeWpp = () => {
             <HStack>
                 <Select
                 variant="flushed"
-                maxW="max-content"
+                width="3xs"
                 size="sm"
                 bg="white"
                 placeholder="+59">
-                <option value="+57">+57</option>
-                <option value="+58">+58</option>
-                <option value="+59">+59</option>
+                  {/* { idd.suffixes?.length === 1 ? idd.root + idd.suffixes[0] : idd.root } */}
+                {
+                  countriesReq.map(({name, flags, idd}, i) => (
+                    <option 
+                      key={i} 
+                      value={idd.root}
+                      style={{padding: '10px'}}
+                    >
+                      <Flex
+                        flexDir="row"
+                      >
+                        <Box><Text>Hola</Text></Box>
+                        <Box><Image src={flags.png} /></Box>
+                      </Flex>
+                    </option>
+                  ))
+                }
                 </Select>
                 
                 <Input
