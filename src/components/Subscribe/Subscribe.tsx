@@ -1,5 +1,5 @@
 import { Box, Button, Checkbox, Editable, EditableInput, EditablePreview, Flex, Heading, HStack, Text } from "@chakra-ui/react"
-import { SubscribeWpp } from "./SubscribeWpp"
+import { SubscribeWpp } from "components";
 
 
 

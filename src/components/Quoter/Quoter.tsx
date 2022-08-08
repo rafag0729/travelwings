@@ -1,5 +1,6 @@
-import { Container, Flex, FormControl, FormLabel, Heading, HStack, Input, Radio, RadioGroup, Select, Tab, TabList, TabPanel, TabPanels, Tabs, Text, Checkbox, Editable, EditablePreview, EditableInput, Button, NumberInput, NumberInputField } from '@chakra-ui/react';
-
+import { Container, Flex, FormControl, FormLabel, Heading, HStack, Input, 
+    Radio, RadioGroup, Select, Tab, TabList, TabPanel, TabPanels, Tabs, Text, 
+    Checkbox, Editable, EditablePreview, EditableInput, Button, NumberInput, NumberInputField } from '@chakra-ui/react';
 
 
 export const Quoter = () => {

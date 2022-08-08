@@ -1,7 +1,7 @@
 import AliceCarousel from 'react-alice-carousel';
-import "react-alice-carousel/lib/alice-carousel.css";
 import { Box, Center, Container, Heading, Image } from "@chakra-ui/react";
-import { imagesSlider } from '../data/FrontSlider';
+import { imagesSlider } from 'data';
+import "react-alice-carousel/lib/alice-carousel.css";
 
 
 export const Slider = () => {

@@ -1,6 +1,6 @@
 import { Tag, Icon } from '@chakra-ui/react'
+import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import { useState, useEffect } from 'react';
-import { BsFillArrowLeftCircleFill } from 'react-icons/bs'
 
 
 interface Props {

@@ -1,4 +1,4 @@
-import { CountriesResp, CountryReq } from '../interfaces/CountriesInterface';
+import { CountriesResp, CountryReq } from 'interfaces';
 
 
 export const getCountriesSpecs = (countries: CountriesResp[] = []): CountryReq[] => {

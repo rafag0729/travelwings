@@ -1,7 +1,6 @@
 import { Container } from "@chakra-ui/react"
-import { HomeScreen } from "../pages/HomeScreen";
-import { Footer } from "../components/Footer";
-import { Header } from "../components/Header";
+import { HomeScreen } from "pages";
+import { Footer, Header } from "components";
 
 
 

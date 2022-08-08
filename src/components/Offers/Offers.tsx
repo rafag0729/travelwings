@@ -1,10 +1,10 @@
 import { Container, Flex, Heading, Box } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
-import { offers as offersData, OffersInt } from '../data/Offers';
-import { OfferArrows } from '../components/OfferArrows';
-import { OfferBox } from "../components/OfferBox";
-import { useXPosition } from '../hooks/useXPosition';
-import './../styles/animation.css';
+import { OffersInt } from "interfaces";
+import { OfferArrows, OfferBox } from 'components';
+import { useXPosition } from 'hooks';
+import { offersData } from 'data';
+import 'styles/animation.css';
 
 
 

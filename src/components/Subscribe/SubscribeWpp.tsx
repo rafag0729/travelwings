@@ -1,8 +1,8 @@
+import { Box, Button, Checkbox, Flex, HStack, Input, Select, Text, Image } from "@chakra-ui/react";
 import { useEffect, useState } from 'react';
-import { Box, Button, Checkbox, Flex, HStack, Input, Select, Text, Image } from "@chakra-ui/react"
-import { getAllCountries } from '../services/getCountries';
-import { getCountriesSpecs } from '../utils/countries';
-import { CountryReq } from '../interfaces/CountriesInterface';
+import { CountryReq } from 'interfaces';
+import { getAllCountries } from 'services';
+import { getCountriesSpecs } from 'utils';
 
 
 export const SubscribeWpp = () => {

@@ -1,9 +1,5 @@
 import { Container, Flex } from "@chakra-ui/react";
-import { Offers } from "../components/Offers";
-import { Payment } from "../components/Payment";
-import { Quoter } from "../components/Quoter";
-import { Slider } from "../components/Slider";
-import { Subscribe } from "../components/Subscribe";
+import { Slider, Offers, Subscribe, Payment, Quoter } from "components";
 
 
 

@@ -1,5 +1,5 @@
 import { Box, Image, Link, Flex } from '@chakra-ui/react';
-import logoTW from './../media/logo.png';
+import { logoTWG } from 'media';
 
 
 
@@ -24,7 +24,7 @@ export const Header = () => {
             bgColor="white"
             maxW="container.lg">
             <Box maxW={32}> 
-              <Image src={ logoTW } alt="Travel Wings"/>  
+              <Image src={ logoTWG } alt="Travel Wings"/>  
             </Box>
 
             <Box>

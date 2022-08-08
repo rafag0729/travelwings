@@ -1,19 +1,7 @@
-
-export interface OffersInt {
-    place: string;
-    image: string;
-    price: number;
-    room: 'sencilla' | 'doble' | 'triple' | 'cuadruple' | 'quintuple',
-    includes: {
-        fly: boolean,
-        hotel: boolean,
-        feeding: boolean,
-        tours: string[]
-    }
-}
+import { OffersInt } from "interfaces";
 
 
-export const offers: OffersInt[] = [
+export const offersData: OffersInt[] = [
     {
         place: 'Santa Marta',
         image: 'https://res.cloudinary.com/duljg8kl5/image/upload/v1656984517/travel-wings/santa_marta_oiswtz.png',

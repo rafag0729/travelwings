@@ -1,8 +1,5 @@
 import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
-import AmexImg from '../media/payment_method/amex.png';
-import VisaImg from '../media/payment_method/visa.png';
-import BancolombiaImg from '../media/payment_method/bancolombia.png';
-import MastercardImg from '../media/payment_method/mastercard.png';
+import { amex, visa, bancolombia, mastercard } from 'media';
 
 
 export const Payment = () => {
@@ -27,16 +24,16 @@ export const Payment = () => {
           justifyContent="space-between"
           alignItems="center">
           <Box>
-            <Image src={ AmexImg } alt="Amex"/>
+            <Image src={ amex } alt="Amex"/>
           </Box>
           <Box>
-            <Image src={ VisaImg } alt="Visa"/>
+            <Image src={ visa } alt="Visa"/>
           </Box>
           <Box>
-            <Image src={ BancolombiaImg } alt="Bancolombia"/>
+            <Image src={ bancolombia } alt="Bancolombia"/>
           </Box>
           <Box>
-            <Image src={ MastercardImg } alt="Mastercard"/>
+            <Image src={ mastercard } alt="Mastercard"/>
           </Box>
         </Flex>
     </Box>
