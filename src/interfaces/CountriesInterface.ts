@@ -2,10 +2,11 @@
 
 /* Countries Flag and Dialing code */
 
-export interface CountryReq {
-    name: Name;
-    flags: CoatOfArms;
+export interface CountryRequired {
+    country: string;
+    flagImage: string;
     idd: Idd;
+    fifaCode: string;
 }
 
 
@@ -37,7 +38,7 @@ export interface CountriesResp {
     flag:         string;
     maps:         Maps;
     population:   number;
-    fifa?:        string;
+    fifa:        string;
     car:          Car;
     timezones:    string[];
     continents:   Continent[];
@@ -64,7 +65,7 @@ export enum Side {
 }
 
 export interface CoatOfArms {
-    png?: string;
+    png: string;
     svg?: string;
 }
 
@@ -264,8 +265,8 @@ export interface Eng {
 }
 
 export interface Idd {
-    root?:     string;
-    suffixes?: string[];
+    root:     string;
+    suffixes: string[];
 }
 
 export interface Maps {

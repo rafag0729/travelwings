@@ -1,0 +1,117 @@
+import { Box, Button, Checkbox, CircularProgress, Fade, Flex, HStack, Icon, 
+  Image, Input, InputGroup, InputLeftAddon, Text, useBoolean } from "@chakra-ui/react";
+import { AiOutlineSearch } from "react-icons/ai";
+import { useContext } from 'react';
+import { CountriesContext } from "context";
+import { FlagsSelect } from "components";
+
+
+export const SubscribeWhatsapp = () => {
+
+  const [flag, setFlag] = useBoolean();
+  const [flagSearch, setFlagSearch] = useBoolean();
+  const {countrySelected} = useContext(CountriesContext);
+
+  return (
+    <>
+      <Text
+        color="white"
+        fontSize="sm"
+        mb="4"
+      >Para recibir nuestras ofertas al instante en tu Correo o Whatsapp, diligencia los siguientes campos y acepta</Text>
+
+        <HStack mb="3">
+            <Checkbox
+              fontSize="sm"
+              colorScheme="white"
+              size="md"
+              isChecked={flag}
+              onChange={setFlag.toggle}
+            />
+            <Text
+              fontSize="sm"
+              color="white"
+              >Recibe nuestras ofertas por Whatsapp</Text>
+        </HStack>
+
+        { flag && (
+          <Flex
+            flexDirection="row"
+            mb="5"
+            bgColor="white"
+            borderRadius="base"
+            p="1"
+            justifyContent="space-between"
+            maxW='full'
+            alignItems="center"
+          >
+            <Box
+              position="relative"
+            >
+              <Icon 
+                as={AiOutlineSearch}
+                mt="1"
+                minW="8"
+                transition="all 100ms ease-in"
+                animation={!countrySelected ? 'scaleInOut 1s ease-in-out infinite' : ''}
+                _hover={{ cursor: 'pointer', transform: 'scale(1.3)' }}
+                _active={{ color: 'brand.blue' }}
+                onClick={ () => setFlagSearch.on() }
+              />
+              <Fade 
+                in={flagSearch}
+              >
+                <FlagsSelect
+                  deactivateSelect={ () => setFlagSearch.off() }
+                />
+              </Fade>
+            </Box>
+            <Flex
+              mx="1" 
+              maxW="10"
+              w="full"
+              justifyContent="center"
+              alignItems="center">
+                  {
+                    !countrySelected 
+                        ? <CircularProgress isIndeterminate size="20px" thickness="15px"/>
+                        : (
+                          <Box>
+                            <Image 
+                              src={ countrySelected.flagImage } 
+                              alt={ countrySelected.country }
+                            />
+                          </Box>
+                        )
+                  }
+            </Flex>
+
+            <InputGroup
+              size="sm"
+            >
+              <InputLeftAddon 
+                w="14"
+                children={
+                  (countrySelected) ? (
+                    countrySelected.idd.suffixes?.length === 1 
+                      ? countrySelected.idd.root + countrySelected.idd.suffixes[0]
+                      : countrySelected.idd.root
+                  ) : "#"
+                }
+              />
+              <Input
+                pl="2"
+                variant="flushed"
+                placeholder="Ingresa tu número Wpp"
+                maxW="3xs"
+              />
+            </InputGroup>
+
+            <Button
+                size="sm"
+                >Enviar</Button>
+          </Flex>
+        )}
+    </>
+  )
+}

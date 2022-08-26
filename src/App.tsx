@@ -1,13 +1,16 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import { AppRouter } from 'router/AppRouter';
 import { theme } from 'theme/theme';
+import { ContactInfoContextProvider } from 'context';
 
 
 
 function App() {
   return (
     <ChakraProvider theme={ theme }>
-      <AppRouter />
+      <ContactInfoContextProvider>
+        <AppRouter /> 
+      </ContactInfoContextProvider>
     </ChakraProvider>
   );
 }
