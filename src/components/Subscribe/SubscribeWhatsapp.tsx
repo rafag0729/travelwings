@@ -33,8 +33,10 @@ export const SubscribeWhatsapp = () => {
               color="white"
               >Recibe nuestras ofertas por Whatsapp</Text>
         </HStack>
-
-        { flag && (
+        <Fade
+          in={flag}
+          unmountOnExit
+        >
           <Flex
             flexDirection="row"
             mb="5"
@@ -60,6 +62,7 @@ export const SubscribeWhatsapp = () => {
               />
               <Fade 
                 in={flagSearch}
+                unmountOnExit
               >
                 <FlagsSelect
                   deactivateSelect={ () => setFlagSearch.off() }
@@ -111,7 +114,7 @@ export const SubscribeWhatsapp = () => {
                 size="sm"
                 >Enviar</Button>
           </Flex>
-        )}
+        </Fade>
     </>
   )
 }

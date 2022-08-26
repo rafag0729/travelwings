@@ -22,7 +22,6 @@ export const FlagsSelect = ({deactivateSelect}: Props) => {
         const filter = countries.filter(c => c.country.toLocaleLowerCase().includes(search.toLowerCase()))
         setCountries(filter);
     }, [search])
-    
 
     return (
         <Flex
@@ -31,10 +30,9 @@ export const FlagsSelect = ({deactivateSelect}: Props) => {
             direction="column"
             position="absolute"
             top="130%"
-            minW="3xs"
+            minW="2xs"
             zIndex="1000"
             maxH="2xs"
-            overflowY="auto"
             borderRadius="md"
             boxShadow="lg"
             onMouseLeave={deactivateSelect}
@@ -44,25 +42,37 @@ export const FlagsSelect = ({deactivateSelect}: Props) => {
                 variant="flushed"
                 minW="8"
                 position="relative"
+                mb="10"
             >
                 <Input 
                     autoComplete="off"
                     placeholder='Busca tu país'
+                    position="absolute"
+                    top="0"
+                    left="0"
+                    zIndex={1000}
+                    bgColor="white"
                     type="search"
                     onChange={({target}) => handleFormChange('search', target.value)}
                     name="search"
                     value={ search }
                 />
             </InputGroup>
-            {   countries.map(({country, flagImage, idd, fifaCode}) => (
-                    <Flags 
-                        key={country}
-                        countryDetails={{
-                            country, flagImage, idd, fifaCode
-                        }}
-                    />
-                ))
-            }
+            <Flex
+                flexDir="column"
+                overflowY="auto"
+            >
+                {   countries.map(({country, flagImage, idd, fifaCode}, i) => (
+                        <Flags 
+                            key={country}
+                            countryDetails={{
+                                country, flagImage, idd, fifaCode
+                            }}
+                            i={i}
+                        />
+                    ))
+                }
+            </Flex>
         </Flex>
     )
 }

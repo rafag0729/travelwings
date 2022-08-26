@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CountryRequired } from "interfaces";
 import { getAllCountries } from "services";
-import { getCountriesSpecs } from "utils";
+import { getCountriesSpecs, orderCountries } from "utils";
 
 
 
@@ -16,7 +16,8 @@ export const useCountries = () => {
     const countries = async() => {
         const resp = await getAllCountries();
         const specs = getCountriesSpecs(resp);
-        setCountriesList(specs)
+        const ordered = orderCountries(specs);
+        setCountriesList(ordered);
     }
 
     return { 

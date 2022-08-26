@@ -6,7 +6,4 @@ export * from "components/Offers/Offers";
 export * from "components/Payment/Payment";
 export * from "components/Quoter/Quoter";
 export * from "components/Slider/Slider";
-export * from "components/Subscribe/Subscribe";
-export * from "components/Subscribe/SubscribeWhatsapp";
-export * from "components/Subscribe/FlagsSelect";
-export * from "components/Subscribe/Flags";
+export * from 'components/Subscribe'

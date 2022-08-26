@@ -1,2 +1,2 @@
-export * from './countries';
+export * from './countriesUtils';
 export * from './offers';
