@@ -1,5 +1,5 @@
-import { Box, Button, Checkbox, Editable, EditableInput, EditablePreview, Flex, Heading, HStack, Text } from "@chakra-ui/react"
-import { SubscribeWhatsapp } from "components";
+import { Box, Heading } from "@chakra-ui/react"
+import { SubscribeWhatsapp, SubscribeEmail } from "components";
 
 
 
@@ -17,36 +17,7 @@ export const Subscribe = () => {
         
         <SubscribeWhatsapp />
         
-        <HStack>
-          <Checkbox
-            fontSize="sm"
-            colorScheme="white"
-            size="md"/>
-            <Text
-              fontSize="sm"
-              color="white"
-              >Recibe nuestras ofertas por Correo</Text>
-        </HStack>
-
-        {/* Subscribe email */}
-        <Flex
-          flexDirection="row"
-          mb="5"
-          bgColor="white"
-          borderRadius="base"
-          p="1"
-          >
-          <Editable
-            size="sm"
-            >
-            <EditablePreview />
-            <EditableInput />
-          </Editable>
-
-          <Button
-            size="sm"
-            >Enviar</Button>
-        </Flex>
+        <SubscribeEmail />
     </Box>
   )
 }
