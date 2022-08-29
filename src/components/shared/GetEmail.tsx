@@ -4,26 +4,36 @@ import { useForm } from 'hooks';
 
 
 
-export const SubscribeEmail = () => {
+interface Props {
+    title: string
+}
+
+export const GetEmail = ({title}: Props) => {
 
     const [flag, setFlag] = useBoolean();
     const { email, handleFormChange, error } = useForm({email: ''});
 
     return (
-        <>
-            <HStack mb="3">
-                <Checkbox
-                    fontSize="sm"
-                    colorScheme="white"
-                    size="md"
-                    isChecked={flag}
-                    onChange={setFlag.toggle}
-                />
-                <Text
-                    fontSize="sm"
-                    color="white"
-                    >Recibe nuestras ofertas por Correo</Text>
-            </HStack>
+        <Flex
+            flexDir="column"
+            flexGrow={2}
+            mx="2"
+        >
+            {   title && (
+                <HStack mb="3">
+                    <Checkbox
+                        fontSize="sm"
+                        colorScheme="white"
+                        size="md"
+                        isChecked={flag}
+                        onChange={setFlag.toggle}
+                    />
+                    <Text
+                        fontSize="sm"
+                        color="white"
+                        >{title}</Text>
+                </HStack>
+            )}
             <Fade
                 in={flag}
             >
@@ -66,6 +76,6 @@ export const SubscribeEmail = () => {
                     </Button>
                 </Flex> 
             </Fade>
-    </>
+        </Flex>
   )
 }
