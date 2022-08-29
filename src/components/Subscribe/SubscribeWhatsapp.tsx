@@ -1,15 +1,17 @@
-import { Box, Button, Checkbox, CircularProgress, Fade, Flex, HStack, Icon, 
+import { Box, Button, Checkbox, CircularProgress, Fade, Flex, FormControl, FormErrorMessage, HStack, Icon, 
   Image, Input, InputGroup, InputLeftAddon, Text, useBoolean } from "@chakra-ui/react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useContext } from 'react';
 import { CountriesContext } from "context";
 import { FlagsSelect } from "components";
+import { useForm } from "hooks";
 
 
 export const SubscribeWhatsapp = () => {
 
   const [flag, setFlag] = useBoolean();
   const [flagSearch, setFlagSearch] = useBoolean();
+  const { tel, handleFormChange, error } = useForm({tel: ''})
   const {countrySelected} = useContext(CountriesContext);
 
   return (
@@ -102,16 +104,35 @@ export const SubscribeWhatsapp = () => {
                   ) : "#"
                 }
               />
-              <Input
-                pl="2"
-                variant="flushed"
-                placeholder="Ingresa tu número Wpp"
-                maxW="3xs"
-              />
+              <FormControl isInvalid={error.error}>
+                <Input
+                  pl="2"
+                  variant="flushed"
+                  size="sm"
+                  placeholder="Ingresa tu número Wpp"
+                  maxW="3xs"
+                  value={ tel }
+                  name="tel"
+                  onChange={(e) => handleFormChange('tel', e.target.value)}
+                />
+                { error.error && (
+                  <FormErrorMessage
+                    position="absolute"
+                    bottom="-6"
+                    bgColor="red"
+                    borderRadius="sm"
+                    color="white"
+                    px="1"
+                >
+                    {error.msg}</FormErrorMessage>
+                  )
+                }
+              </FormControl>
             </InputGroup>
 
             <Button
                 size="sm"
+                disabled={error.error}
                 >Enviar</Button>
           </Flex>
         </Fade>
