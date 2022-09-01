@@ -5,7 +5,7 @@ interface SliderInt {
     quote: string;
 }
 
-export const imagesSlider: SliderInt[] = [
+export const sliderImagesData: SliderInt[] = [
     {
         image: require('../media/front/balloons.png'),
         color: 'red',
