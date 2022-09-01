@@ -29,12 +29,12 @@ export const FlagsSelect = ({deactivateSelect}: Props) => {
             p="2"
             direction="column"
             position="absolute"
-            top="130%"
             minW="2xs"
+            top="100%"
             zIndex="1000"
             maxH="2xs"
             borderRadius="md"
-            boxShadow="lg"
+            boxShadow="dark-lg"
             onMouseLeave={deactivateSelect}
         >
             <InputGroup

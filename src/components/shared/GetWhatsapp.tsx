@@ -1,6 +1,6 @@
 import { Box, Button, Checkbox, CircularProgress, Fade, Flex, FormControl, FormErrorMessage, HStack, Icon, 
   Image, Input, InputGroup, InputLeftAddon, Text, useBoolean } from "@chakra-ui/react";
-import { AiOutlineSearch } from "react-icons/ai";
+import { GoTriangleDown } from "react-icons/go";
 import { useContext } from 'react';
 import { CountriesContext } from "context";
 import { FlagsSelect } from "components";
@@ -46,6 +46,7 @@ export const GetWhatsapp = ({title}: Props) => {
         unmountOnExit
       >
         <Flex
+          position="relative"
           flexDirection="row"
           mb="5"
           bgColor="white"
@@ -55,32 +56,17 @@ export const GetWhatsapp = ({title}: Props) => {
           maxW='full'
           alignItems="center"
         >
-          <Box
-            position="relative"
+          <Fade 
+            in={flagSearch}
+            unmountOnExit
           >
-            <Icon 
-              as={AiOutlineSearch}
-              mt="1"
-              minW="8"
-              transition="all 100ms ease-in"
-              animation={!countrySelected ? 'scaleInOut 1s ease-in-out infinite' : ''}
-              _hover={{ cursor: 'pointer', transform: 'scale(1.3)' }}
-              _active={{ color: 'brand.blue' }}
-              onClick={ () => setFlagSearch.on() }
+            <FlagsSelect
+              deactivateSelect={ () => setFlagSearch.off() }
             />
-            <Fade 
-              in={flagSearch}
-              unmountOnExit
-            >
-              <FlagsSelect
-                deactivateSelect={ () => setFlagSearch.off() }
-              />
-            </Fade>
-          </Box>
+          </Fade>
           <Flex
             mx="1" 
-            maxW="10"
-            w="full"
+            w="20"
             justifyContent="center"
             alignItems="center">
                 {
@@ -95,6 +81,12 @@ export const GetWhatsapp = ({title}: Props) => {
                         </Box>
                       )
                 }
+                <Icon 
+                  as={GoTriangleDown}
+                  ml="1.5"
+                  _hover={{ cursor: 'pointer' }}
+                  onClick={ () => setFlagSearch.on() }
+                />
           </Flex>
 
           <InputGroup
@@ -107,7 +99,7 @@ export const GetWhatsapp = ({title}: Props) => {
                   countrySelected.idd.suffixes?.length === 1 
                     ? countrySelected.idd.root + countrySelected.idd.suffixes[0]
                     : countrySelected.idd.root
-                ) : "#"
+                ) : "+"
               }
             />
             <FormControl isInvalid={error.error}>
