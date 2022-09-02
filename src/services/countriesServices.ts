@@ -1,9 +1,9 @@
-import { axiosConfig } from 'services';
+import { axiosCountries } from 'services';
 
 export const getAllCountries = async() => {
 
     try {
-        const {data} = await axiosConfig.get('/all');
+        const {data} = await axiosCountries.get('/all');
         return data;
     } catch (error) {
         console.log({
@@ -11,5 +11,4 @@ export const getAllCountries = async() => {
             error
         })
     }
-
 }

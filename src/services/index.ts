@@ -1,2 +1,3 @@
-export * from 'services/config';
-export * from 'services/getCountries';
+export * from './axiosConfig';
+export * from './countriesServices';
+export * from './citiesServices';
