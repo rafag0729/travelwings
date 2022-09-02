@@ -1,4 +1,7 @@
-export const citiesData = [
+import { CitiesInterface } from '../interfaces/citiesInterface';
+
+
+export const citiesData: CitiesInterface[] = [
     {
         "type": "location",
         "subType": "city",

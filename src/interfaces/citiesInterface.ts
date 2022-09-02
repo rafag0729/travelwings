@@ -1,8 +1,8 @@
-export interface CitiesResp {
+export interface CitiesInterface {
     type: string;
     subType: string;
     name: string;
-    iataCode: string;
+    iataCode?: string;
     address: CityAddress;
     geoCode: CityGeoCode;
 }
