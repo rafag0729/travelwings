@@ -1,4 +1,4 @@
-import { Box, Button, Checkbox, CircularProgress, Fade, Flex, FormControl, FormErrorMessage, HStack, Icon, 
+import { Box, Button, Checkbox, Fade, Flex, FormControl, FormErrorMessage, HStack, Icon, 
   Image, Input, InputGroup, InputLeftAddon, Text, useBoolean } from "@chakra-ui/react";
 import { GoTriangleDown } from "react-icons/go";
 import { useContext } from 'react';
@@ -71,7 +71,7 @@ export const GetWhatsapp = ({title}: Props) => {
             alignItems="center">
                 {
                   !countrySelected 
-                      ? <CircularProgress isIndeterminate size="20px" thickness="15px"/>
+                      ? ( <Box w="10" h="6" bgColor="gray.300" borderRadius="sm"></Box>)
                       : (
                         <Box>
                           <Image 
