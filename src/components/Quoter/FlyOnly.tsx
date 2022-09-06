@@ -1,5 +1,5 @@
-import { Flex, FormControl, FormLabel, Input, Radio, RadioGroup, Text } from "@chakra-ui/react"
-import { GetCity, GetDate } from 'components';
+import { Flex, Radio, RadioGroup, Text } from "@chakra-ui/react"
+import { GetCity, GetDate, GetQuantity } from 'components';
 
 
 export const FlyOnly = () => {
@@ -29,29 +29,18 @@ export const FlyOnly = () => {
           </Radio>
         </Flex>
       </RadioGroup>
-      <Flex>
+      <Flex mb="4">
         <GetCity label="Ciudad de origen" />
 
         <GetDate label="Fecha de salida"/>
       </Flex>
-      {/* <Flex>
+      <Flex>
         <GetCity label="Ciudad de destino" />
 
         <GetDate label="Fecha de regreso"/>
-      </Flex> */}
-
-      <FormControl 
-          mr="4"
-          mb="4">
-          <FormLabel
-            fontSize="sm"
-            fontWeight="bold">Número personas</FormLabel>
-          <Input 
-            size="sm"
-            bgColor="white"
-            color="blackAlpha.700"
-            type="number"/>
-      </FormControl>
+        
+        <GetQuantity />
+      </Flex>
     </>
   )
 }
