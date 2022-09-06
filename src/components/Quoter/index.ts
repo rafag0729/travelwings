@@ -2,10 +2,5 @@ export * from './Quoter';
 export * from './FlyOnly';
 export * from './HotelOnly';
 export * from './FlyAndHotel';
-export * from './GetCity';
-export * from './CitiesSelect';
-export * from './GetDate';
-export * from './GetQuantity';
-export * from './Cities';
-export * from './Timer';
-export * from './HotelRate';
+export * from './shared'
+
