@@ -8,3 +8,4 @@ export * from './GetDate';
 export * from './GetQuantity';
 export * from './Cities';
 export * from './Timer';
+export * from './HotelRate';
