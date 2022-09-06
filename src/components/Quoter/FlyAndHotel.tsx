@@ -1,119 +1,32 @@
-import { Flex, FormControl, FormLabel, Input, Select } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
+import { GetCity, GetDate, HotelRate, GetQuantity } from 'components';
 
 
 export const FlyAndHotel = () => {
   return (
-    <Flex direction="row">
-      <FormControl 
-        mr="4"
-        mb="4">
-        <FormLabel 
-          fontSize="sm"
-          fontWeight="bold">Origen</FormLabel>
-        <Select
-          size="sm"
-          bgColor="white"
-          color="blackAlpha.700"
-          placeholder="Ingrese la ciudad origen..."
-          >
-          <option value="Cali, Colombia">Cali</option>
-          <option value="Pereira, Colombia">Pereira</option>
-        </Select>
-      </FormControl>
+    <>
+      <Flex mb="4">
+        <GetCity label="Ciudad de origen" />
 
-      <FormControl 
-        mr="4"
-        mb="4">
-        <FormLabel
-          fontSize="sm"
-          fontWeight="bold">Fecha salida</FormLabel>
-        <Input
-          size="sm"
-          bgColor="white"
-          color="blackAlpha.700"
-          type="date"/>
-      </FormControl>
+        <GetCity label="Ciudad de destino" />
+      </Flex>
+      <Flex 
+        justifyContent="space-between"
+        mb="4"
+      >
+        <GetDate label="Fecha de inicio"/>
 
-      <FormControl 
-        mr="4"
-        mb="4">
-        <FormLabel 
-          fontSize="sm"
-          fontWeight="bold">Destino</FormLabel>
-        <Select
-          size="sm"
-          bgColor="white"
-          color="blackAlpha.700"
-          placeholder="Ingrese la ciudad origen..."
-          >
-          <option value="Cali, Colombia">Cali</option>
-          <option value="Pereira, Colombia">Pereira</option>
-        </Select>
-      </FormControl>
+        <GetDate label="Fecha de regreso"/>
+      </Flex>
+      <Flex justifyContent="space-between">
+        <HotelRate />
 
-      <FormControl 
-        mr="4"
-        mb="4">
-        <FormLabel
-          fontSize="sm"
-          fontWeight="bold">Fecha regreso</FormLabel>
-        <Input 
-          size="sm"
-          bgColor="white"
-          color="blackAlpha.700"
-          type="date"/>
-      </FormControl>
+        <Flex justifyContent="flex-end">
+          <GetQuantity label="Nro. adultos"/>
 
-      <FormControl 
-        mr="4"
-        mb="4">
-        <FormLabel 
-          fontSize="sm"
-          fontWeight="bold">Categoria hotel</FormLabel>
-        <Select
-          size="sm"
-          bgColor="white"
-          color="blackAlpha.700"
-          placeholder="Ingrese el tipo de hotel"
-          >
-          <option value="Cali, Colombia">1 estrella</option>
-          <option value="Pereira, Colombia">2 estrellas</option>
-        </Select>
-      </FormControl>
-
-      <FormControl 
-        mr="4"
-        mb="4">
-        <FormLabel 
-          fontSize="sm"
-          fontWeight="bold">Número personas</FormLabel>
-        <Select
-          size="sm"
-          bgColor="white"
-          color="blackAlpha.700"
-          placeholder="..."
-          >
-          <option value="Cali, Colombia">Cali</option>
-          <option value="Pereira, Colombia">Pereira</option>
-        </Select>
-      </FormControl>
-
-      <FormControl 
-        mr="4"
-        mb="4">
-        <FormLabel 
-          fontSize="sm"
-          fontWeight="bold">Número habitaciones</FormLabel>
-        <Select
-          size="sm"
-          bgColor="white"
-          color="blackAlpha.700"
-          placeholder="Ingrese la ciudad origen..."
-          >
-          <option value="Cali, Colombia">Cali</option>
-          <option value="Pereira, Colombia">Pereira</option>
-        </Select>
-      </FormControl>
-    </Flex>
+          <GetQuantity label="Nro. niños"/>
+        </Flex>
+      </Flex>
+    </>
   )
 }
