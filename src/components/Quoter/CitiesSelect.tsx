@@ -10,13 +10,6 @@ interface Props {
 
 export const CitiesSelect = ({cities, deactivateSelect}: Props) => {
 
-  /*
-    Aca tendría que obtener la info del contexto
-    Cuando cambie, aca deberia guardarlo en un estado
-    Aca se actualizarian las ciudades filtradas según los cambios de letras
-    Seleccionar la ciudad por defecto 
-  */
-
   return (
     <Flex
       bgColor="white"
@@ -38,7 +31,7 @@ export const CitiesSelect = ({cities, deactivateSelect}: Props) => {
       >
           {   cities.length > 0 ? cities.map((city) => (
                 <Button
-                  key={city.name}
+                  key={city.geoCode.latitude}
                   flexDir="row"
                   flexWrap="nowrap"
                   justifyContent="flex-start"

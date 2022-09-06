@@ -25,21 +25,11 @@ export const GetCity = ({label}: Props) => {
   
   useEffect(() => {
     onLaunchSearch();
-  }, [city])
-
-  useEffect(() => {
     onFilterCities(city);
   }, [city])
 
-  useEffect(() => {
-    if(wait) return;
-    fetchingCities();
-  }, [wait])
-  
-
   const onLaunchSearch = async() => {
     if(city.length < 3 ) return setFlag.off();
-    setFlag.on();
     if(city.length === 3) {
       if(city.slice(0, 3) !== searchRef.current?.slice(0,3) ){
         console.log({
@@ -53,6 +43,7 @@ export const GetCity = ({label}: Props) => {
   }
 
   const fetchingCities = async() => {
+    setWait(false);
     setIsLoading(true)
     try {
       const citiesResp = await getCities();
@@ -88,7 +79,7 @@ export const GetCity = ({label}: Props) => {
         
         <InputGroup>
           <InputLeftElement pb="2" children={ 
-            wait ? <Timer initial={3} timeOut={setWait}/> : 
+            wait ? <Timer initial={2} fetchCities={fetchingCities}/> : 
             isLoading 
               ? <CircularProgress isIndeterminate size="20px" />  
               : <BsSearch fill="gray"/>

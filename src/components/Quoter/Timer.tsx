@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react';
 
 interface Props {
   initial: number,
-  timeOut: Function
+  fetchCities: Function
 }
 
-export const Timer = ({initial, timeOut}: Props) => {
+export const Timer = ({initial, fetchCities}: Props) => {
   
   const [seconds, setSeconds] = useState(initial);
 
@@ -15,14 +15,19 @@ export const Timer = ({initial, timeOut}: Props) => {
     const timerId = timer(); 
     return () => window.clearInterval(timerId);
   }, [])
+
+  useEffect(() => {
+    if(seconds !== 0) return;
+    fetchCities(); 
+  }, [seconds])
+  
   
   const timer = () => {
     return window.setInterval(() => {
       setSeconds((prev) => { 
-        if (prev !== 0){
+        if (prev > 0){
           return prev-1
         } else {
-          timeOut(false);
           return prev;
         }})
     }, 1000)
