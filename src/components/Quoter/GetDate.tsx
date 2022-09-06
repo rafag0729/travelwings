@@ -9,7 +9,7 @@ interface Props {
 export const GetDate = ({ label }: Props) => {
   return (
     <Box 
-      flex="2 1 200px"
+      flex="0 1 200px"
       mx="2"
     >
       <FormControl>
@@ -17,7 +17,6 @@ export const GetDate = ({ label }: Props) => {
           fontSize="sm"
           fontWeight="bold">{ label }</FormLabel>
         <Input
-          borderRadius="md"
           size="sm"
           bgColor="white"
           color="blackAlpha.700"

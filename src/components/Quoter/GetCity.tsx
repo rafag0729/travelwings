@@ -89,8 +89,7 @@ export const GetCity = ({label}: Props) => {
             variant="flushed"
             size="sm"
             bgColor="white"
-            borderRadius="md"
-            placeholder={`Ingresa la ciudad`} 
+            placeholder='Ingresa la ciudad' 
             color="gray.600"
             value={ city }
             name="city"
