@@ -2,3 +2,8 @@ export * from './Quoter';
 export * from './FlyOnly';
 export * from './HotelOnly';
 export * from './FlyAndHotel';
+export * from './GetCity';
+export * from './GetDate';
+export * from './CitiesSelect';
+export * from './Cities';
+export * from './Timer';

@@ -48,7 +48,8 @@ export const Quoter = () => {
 
       <Flex
         flexDir="row"
-        justifyContent="space-evenly">
+        justifyContent="space-evenly"
+      >
         <GetWhatsapp title="Recibe tu cotización por Whatsapp" />
 
         <GetEmail title='Recibe tu cotización por correo' />

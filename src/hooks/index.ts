@@ -1,3 +1,3 @@
-export * from 'hooks/useXPosition';
-export * from 'hooks/useForm';
-export * from 'hooks/useCountries';
+export * from './useXPosition';
+export * from './useForm';
+export * from './useCountries';

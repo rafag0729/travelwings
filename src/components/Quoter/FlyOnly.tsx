@@ -1,4 +1,5 @@
-import { Flex, FormControl, FormLabel, Input, Radio, RadioGroup, Select, Text } from "@chakra-ui/react"
+import { Flex, FormControl, FormLabel, Input, Radio, RadioGroup, Text } from "@chakra-ui/react"
+import { GetCity, GetDate } from 'components';
 
 
 export const FlyOnly = () => {
@@ -28,81 +29,29 @@ export const FlyOnly = () => {
           </Radio>
         </Flex>
       </RadioGroup>
-      <Flex
-          direction="row">
-          <FormControl
-            mr="4"
-            mb="4">
-            <FormLabel 
-              fontSize="sm"
-              fontWeight="bold">Origen</FormLabel>
-            <Select
-              size="sm"
-              bgColor="white"
-              color="blackAlpha.700"
-              placeholder="Ingrese la ciudad origen..."
-            >
-              <option value="Cali, Colombia">Cali</option>
-              <option value="Pereira, Colombia">Pereira</option>
-            </Select>
-          </FormControl>
+      <Flex>
+        <GetCity label="Ciudad de origen" />
 
-          <FormControl 
-            mr="4"
-            mb="4">
-            <FormLabel
-              fontSize="sm"
-              fontWeight="bold">Fecha ida</FormLabel>
-            <Input
-              size="sm"
-              bgColor="white"
-              color="blackAlpha.700"
-              type="date"/>
-          </FormControl>
-
-          <FormControl 
-            mr="4"
-            mb="4">
-            <FormLabel
-              fontSize="sm"
-              fontWeight="bold">Destino</FormLabel>
-            <Select
-              size="sm"
-              bgColor="white"
-              color="blackAlpha.700"
-              placeholder="Ingrese la ciudad origen..."
-              >
-              <option value="Cali, Colombia">Cali</option>
-              <option value="Pereira, Colombia">Pereira</option>
-            </Select>
-          </FormControl>
-
-          <FormControl 
-            mr="4"
-            mb="4">
-            <FormLabel
-              fontSize="sm"
-              fontWeight="bold">Fecha regreso</FormLabel>
-            <Input 
-              size="sm"
-              bgColor="white"
-              color="blackAlpha.700"
-              type="date"/>
-          </FormControl>
-
-          <FormControl 
-              mr="4"
-              mb="4">
-              <FormLabel
-                fontSize="sm"
-                fontWeight="bold">Número personas</FormLabel>
-              <Input 
-                size="sm"
-                bgColor="white"
-                color="blackAlpha.700"
-                type="number"/>
-          </FormControl>
+        <GetDate label="Fecha de salida"/>
       </Flex>
+      {/* <Flex>
+        <GetCity label="Ciudad de destino" />
+
+        <GetDate label="Fecha de regreso"/>
+      </Flex> */}
+
+      <FormControl 
+          mr="4"
+          mb="4">
+          <FormLabel
+            fontSize="sm"
+            fontWeight="bold">Número personas</FormLabel>
+          <Input 
+            size="sm"
+            bgColor="white"
+            color="blackAlpha.700"
+            type="number"/>
+      </FormControl>
     </>
   )
 }
