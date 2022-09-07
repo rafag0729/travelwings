@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Box, Button, Flex, HStack, Image, Text, useDisclosure } from "@chakra-ui/react"
 import { OffersInt } from 'interfaces';
 import { transformRoomCost } from 'utils';
-import { FeedingIcon, HotelIcon, PlaneIcon, ToursIcon } from "media";
+import { FeedingIcon, HotelIcon, PlaneIcon, ToursIcon } from "assets";
 
 
 

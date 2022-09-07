@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
-import { amex, visa, bancolombia, mastercard } from 'media';
+import { amex, visa, bancolombia, mastercard } from 'assets';
 
 
 export const Payment = () => {

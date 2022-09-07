@@ -7,27 +7,27 @@ interface SliderInt {
 
 export const sliderImagesData: SliderInt[] = [
     {
-        image: require('../media/front/balloons.png'),
+        image: require('../assets/front/balloons.png'),
         color: 'red',
         quote: 'Siente'
     },
     {
-        image: require('../media/front/couple.png'),
+        image: require('../assets/front/couple.png'),
         color: 'purple',
         quote: 'Viaja'
     },
     {
-        image: require('../media/front/diving.png'),
+        image: require('../assets/front/diving.png'),
         color: 'blue',
         quote: 'Conoce'
     },
     {
-        image: require('../media/front/family.png'),
+        image: require('../assets/front/family.png'),
         color: 'green',
         quote: 'Vive'
     },
     {
-        image: require('../media/front/surf.png'),
+        image: require('../assets/front/surf.png'),
         color: 'yellow',
         quote: 'Comparte'
     },

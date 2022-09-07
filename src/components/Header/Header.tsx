@@ -1,5 +1,5 @@
 import { Box, Image, Link, Flex } from '@chakra-ui/react';
-import { logoTWG } from 'media';
+import { logoTWG } from 'assets';
 
 
 
