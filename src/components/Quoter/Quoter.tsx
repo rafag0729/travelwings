@@ -18,19 +18,21 @@ export const Quoter = () => {
       <Text
         color="white"
         fontSize="sm"
-        mb="4"
+        mb="8"
         >Diligencia el siguiente formulario para recibir tu cotización en tu número celular o whatsapp</Text>
 
       <Tabs 
-        variant="soft-rounded"
+        variant="enclosed"
         colorScheme="green"
         size="sm"
+        align="center"
+        isFitted
         color="white"
-        >
+      >
         <TabList>
-          <Tab>Sólo vuelo</Tab>
-          <Tab>Sólo hotel</Tab>
-          <Tab>Paquetes (Vuelo + Hotel)</Tab>
+          <Tab _selected={{bgColor: 'green.700', color: 'white'}}>Sólo vuelo</Tab>
+          <Tab _selected={{bgColor: 'green.700', color: 'white'}}>Sólo hotel</Tab>
+          <Tab _selected={{bgColor: 'green.700', color: 'white'}}>Paquetes (Vuelo + Hotel)</Tab>
         </TabList>
 
         <TabPanels>
