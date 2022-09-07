@@ -64,11 +64,14 @@ export const GetWhatsapp = ({title}: Props) => {
               deactivateSelect={ () => setFlagSearch.off() }
             />
           </Fade>
-          <Flex
+
+          <Box
+            display="flex"
             mx="1" 
             w="20"
             justifyContent="center"
-            alignItems="center">
+            alignItems="center"
+          >
                 {
                   !countrySelected 
                       ? ( <Box w="10" h="6" bgColor="gray.300" borderRadius="sm"></Box>)
@@ -87,11 +90,9 @@ export const GetWhatsapp = ({title}: Props) => {
                   _hover={{ cursor: 'pointer' }}
                   onClick={ () => setFlagSearch.on() }
                 />
-          </Flex>
-
-          <InputGroup
-            size="sm"
-          >
+          </Box>
+          
+          <InputGroup size="sm">
             <InputLeftAddon 
               w="14"
               children={
@@ -107,8 +108,8 @@ export const GetWhatsapp = ({title}: Props) => {
                 pl="2"
                 variant="flushed"
                 size="sm"
+                w="full"
                 placeholder="Ingresa tu número Wpp"
-                maxW="3xs"
                 value={ tel }
                 name="tel"
                 onChange={(e) => handleFormChange('tel', e.target.value)}
