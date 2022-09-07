@@ -5,7 +5,7 @@ interface Props {
   label?: string;
 }
 
-export const HotelRate = ({ label = 'Categoria del hotel'}: Props) => {
+export const GetHotelRate = ({ label = 'Categoria del hotel'}: Props) => {
   return (
     <Box
       flex="0 1 200px"

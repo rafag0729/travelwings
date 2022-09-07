@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react"
-import { GetCity, GetDate, HotelRate, GetQuantity } from 'components';
+import { GetCity, GetDate, GetHotelRate, GetQuantity } from 'components';
 
 
 export const FlyAndHotel = () => {
@@ -19,7 +19,7 @@ export const FlyAndHotel = () => {
         <GetDate label="Fecha de regreso"/>
       </Flex>
       <Flex justifyContent="space-between">
-        <HotelRate />
+        <GetHotelRate />
 
         <Flex justifyContent="flex-end">
           <GetQuantity label="Nro. adultos"/>
