@@ -17,8 +17,7 @@ export const FlyAndHotel = () => {
         <GetDate label="Fecha de inicio"/>
 
         <GetDate label="Fecha de regreso"/>
-      </Flex>
-      <Flex justifyContent="space-between">
+
         <GetHotelRate />
 
         <Flex justifyContent="flex-end">

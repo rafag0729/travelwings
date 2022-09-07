@@ -25,10 +25,10 @@ export const GetHotelRate = ({ label = 'Categoria del hotel'}: Props) => {
           >
             <option value="">Selecciona una opción</option>
             <option value="1">1 estrella</option>
-            <option value="2">2 estrella</option>
-            <option value="3">3 estrella</option>
-            <option value="4">4 estrella</option>
-            <option value="5">5 estrella</option>
+            <option value="2">2 estrellas</option>
+            <option value="3">3 estrellas</option>
+            <option value="4">4 estrellas</option>
+            <option value="5">5 estrellas</option>
           </Select> 
       </FormControl>
     </Box>

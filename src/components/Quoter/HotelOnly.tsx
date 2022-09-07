@@ -11,13 +11,11 @@ export const HotelOnly = () => {
       </Flex>
       <Flex 
         justifyContent="space-between"
-        mb="4"
-      >
+        mb="4">
         <GetDate label="Fecha de inicio"/>
 
         <GetDate label="Fecha de regreso"/>
-      </Flex>
-      <Flex justifyContent="space-between">
+
         <GetHotelRate />
 
         <Flex justifyContent="flex-end">
