@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react"
-import { GetCity, GetDate, GetHotelRate, GetQuantity } from 'components';
+import { GetCity, GetDate, GetHotelRate, GetQuantity, GetObservations } from 'components';
 
 
 
@@ -23,6 +23,9 @@ export const HotelOnly = () => {
 
           <GetQuantity label="Nro. niños"/>
         </Flex>
+      </Flex>
+      <Flex mb="4">
+        <GetObservations label="Observaciones adicionales" />
       </Flex>
     </>
   )

@@ -1,5 +1,5 @@
 import { Flex, HStack, Radio, RadioGroup, Text } from "@chakra-ui/react"
-import { GetCity, GetDate, GetQuantity } from 'components';
+import { GetCity, GetDate, GetQuantity, GetObservations } from 'components';
 import { useState } from 'react';
 
 
@@ -54,6 +54,9 @@ export const FlyOnly = () => {
 
           <GetQuantity label="Nro. niños"/>
         </Flex>
+      </Flex>
+      <Flex mb="4">
+        <GetObservations label="Observaciones adicionales" />
       </Flex>
     </>
   )
