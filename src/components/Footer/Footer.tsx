@@ -11,8 +11,8 @@ export const Footer = () => {
 
         <Flex mb="6" flexDirection="column">
           <Text fontSize="sm" color="white">Pereira, Risaralda, Colombia</Text>
-          <Text fontSize="sm" color="white">304 524 5250</Text>
-          <Text fontSize="sm" color="white">rafaga_729@hotmail.com</Text>
+          <Text fontSize="sm" color="white">301 593 8074</Text>
+          <Text fontSize="sm" color="white">travelwingsagencia@gmail.com</Text>
         </Flex> 
 
         <Flex direction="row" justifyContent="space-between">
