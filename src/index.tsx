@@ -1,13 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
+import { RouterProvider } from "react-router-dom";
+
+import { ContactInfoContextProvider } from 'context';
+import { ChakraProvider, Container } from '@chakra-ui/react';
+import { theme } from 'theme/theme';
+import { Footer, Header } from 'components';
+
+import { router } from 'router/routes';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App /> 
-    </BrowserRouter>
+    <ChakraProvider theme={ theme }>
+      <ContactInfoContextProvider>
+        <Container maxW="full" bg="blackAlpha.200" p="-0.5">
+          <Header />
+          <RouterProvider router={router} />
+          <Footer />
+        </Container>
+      </ContactInfoContextProvider>
+      </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
