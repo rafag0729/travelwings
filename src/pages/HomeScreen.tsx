@@ -6,7 +6,6 @@ import { CountriesContextProvider } from "context";
 
 export const HomeScreen = () => {
   return (
-    <>
     <CountriesContextProvider>
         <Slider />
         <Container maxW="container.lg">
@@ -23,6 +22,5 @@ export const HomeScreen = () => {
             <Quoter />
         </Container>
       </CountriesContextProvider>
-    </>
   )
 }
