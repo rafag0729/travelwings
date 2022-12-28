@@ -1,5 +1,5 @@
 import { Button, Flex, Text } from "@chakra-ui/react"
-import { CitiesInterface } from '../../../../interfaces/citiesInterface';
+import { CitiesInterface } from '../../../../../interfaces/citiesInterface';
 
 
 
