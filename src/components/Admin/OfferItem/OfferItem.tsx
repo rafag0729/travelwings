@@ -1,7 +1,7 @@
 import { Box, Checkbox, CheckboxGroup, Flex, IconButton, Image, ListItem, Text, UnorderedList } from '@chakra-ui/react'
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai'
 
-export const OffertsItems = () => {
+export const OfferItem = () => {
   return (
     <Box boxShadow="lg" maxW="3xs" borderRadius="md" p="4">
       <Text

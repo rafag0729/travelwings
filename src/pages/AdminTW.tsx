@@ -1,5 +1,6 @@
 import { Container, Flex, Heading, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from '@chakra-ui/react'
-import { OffertsItems } from 'components/Admin/OffersItem/OffertsItems';
+import { OfferItem } from 'components/Admin/OfferItem/OfferItem'
+
 
 
 export const AdminTW = () => {
@@ -17,22 +18,30 @@ export const AdminTW = () => {
             <TabList>
               <Tab>Administrador de ofertas</Tab>
               <Tab>Administrador de cotizaciones</Tab>
+              <Tab>Administrador de fotos por destino</Tab>
             </TabList>
 
             <TabPanels>
               <TabPanel>
                 <Text mb="4">Lista de ofertas</Text>
+                {/* TODO: Read collections of offers added */}
                 <Flex flexDirection="row">
-                  <OffertsItems />
-                  <OffertsItems />
-                  <OffertsItems />
-                  <OffertsItems />
+                  <OfferItem />
+                  <OfferItem />
+                  <OfferItem />
+                  <OfferItem />
+                  <OfferItem />
                 </Flex>
               </TabPanel>
 
               <TabPanel>
                 <Text>Lista de cotizaciones</Text>
               </TabPanel>
+
+              <TabPanel>
+                <Text>Agregar destino y foto a usar</Text>
+              </TabPanel>
+
             </TabPanels>
           </Tabs>
           
