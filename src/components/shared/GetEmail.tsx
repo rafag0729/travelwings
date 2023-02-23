@@ -1,6 +1,8 @@
-import { Button, Checkbox, Fade, Flex, FormControl, FormErrorMessage, 
-    HStack, Input, Text, useBoolean } from '@chakra-ui/react'
+import { Alert, AlertDescription, AlertIcon, AlertTitle, Button, Checkbox, CircularProgress, Fade, Flex, FormControl, FormErrorMessage, 
+    HStack, Input, Text, Tooltip, useBoolean, useTimeout } from '@chakra-ui/react'
 import { useForm } from 'hooks';
+import { useState } from 'react';
+import { sendToBusiness } from 'utils/emailToBusiness';
 
 
 
@@ -10,8 +12,27 @@ interface Props {
 
 export const GetEmail = ({title}: Props) => {
 
-    const [ flag, setFlag ] = useBoolean();
     const { email, handleFormChange, error } = useForm({email: ''});
+    const [ flag, setFlag ] = useBoolean();
+    const [ loading, setLoading ] = useBoolean();
+    const [ operation, setOperation ] = useState<'success' | 'error' | null>(null)
+
+    const handleSubmit = () => {
+      if(!email || error.error) return;
+      setLoading.on();   
+      sendToBusiness({contact_email: email})
+        .then(() => setOperation('success'))
+        .catch(err => {
+          console.log(err);
+          setOperation('error');
+        })
+        .finally(() => {
+          setLoading.off();
+          setTimeout(() => {
+            setOperation(null);
+          }, 4000)
+        })
+    }
 
     return (
         <Flex
@@ -19,7 +40,7 @@ export const GetEmail = ({title}: Props) => {
           flexGrow={2}
           mx="2"
         >
-            {   title && (
+            { title && (
               <HStack mb="3">
                 <Checkbox
                   fontSize="sm"
@@ -68,13 +89,25 @@ export const GetEmail = ({title}: Props) => {
                           >
                             {error.msg}</FormErrorMessage>) } 
                     </FormControl>
-                    <Button
-                      size="sm"
-                      disabled={error.error}
-                    >
-                      Enviar
-                    </Button>
-                </Flex> 
+                    <Tooltip label="Ingresa un email vàlido para usar el botón">
+                      <Button
+                        size="sm"
+                        onClick={handleSubmit}
+                        minW="24"
+                        // disabled={error.error || !email}
+                      >
+                        { !loading ? 'Enviar' : <CircularProgress isIndeterminate color="brand.blue" size='20px'/> }
+                      </Button>
+                    </Tooltip>
+                </Flex>
+                { operation && (
+                    <Alert status={operation === 'success' ? 'success' : 'error'}>
+                      <AlertIcon />
+                      <AlertTitle>{operation === 'success' ? 'Correo enviado exitosamente' : 'Fallo al enviar el correo'}</AlertTitle>
+                      <AlertDescription>{operation === 'success' ? 'Recibimos tu correo, te has suscritos ha nuestros correos de oferta' : 'Revisaremos que paso en el envio, pronto estará nuevamente disponible'}</AlertDescription>
+                    </Alert>
+                  )
+                }
             </Fade>
         </Flex>
   )
