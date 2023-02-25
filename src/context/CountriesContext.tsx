@@ -1,4 +1,4 @@
-import { createContext, ReactElement, useEffect, useState } from 'react';
+import { createContext, ReactElement } from 'react';
 import { CountryRequired } from 'interfaces';
 import { useCountries } from 'hooks';
 
@@ -7,13 +7,13 @@ import { useCountries } from 'hooks';
 interface ContextInt {
     countriesList: CountryRequired[] | null;
     countrySelected: CountryRequired| null;
-    setCountrySelected: (country: CountryRequired) => void;
+    selectCountry: (country: CountryRequired) => void;
 }
 
 export const CountriesContext = createContext<ContextInt>({
     countriesList: [],
     countrySelected: null,
-    setCountrySelected: () => {}
+    selectCountry: () => {}
 });
 
 interface Props {
@@ -22,23 +22,13 @@ interface Props {
 
 export const CountriesContextProvider = ({ children }: Props) => {
 
-    const {countriesList} = useCountries();
-    const [countrySelected, setCountrySelected] = useState<CountryRequired | null>(null);
-
-    useEffect(() => {
-        setColCountry();
-    }, [countriesList]);
-
-    const setColCountry = () => {
-        const defaultCountry = countriesList?.filter(c => c.country.toLowerCase() === 'colombia');
-        defaultCountry && setCountrySelected(defaultCountry[0])
-    }
+    const {countriesList, selectCountry, countrySelected} = useCountries();
 
     return (
         <CountriesContext.Provider value={{
             countriesList,
             countrySelected,
-            setCountrySelected
+            selectCountry
         }}>
                 { children }
         </CountriesContext.Provider> 

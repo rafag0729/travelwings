@@ -12,7 +12,7 @@ interface FlagsProps {
 
 export const Flags = ({countryDetails, i}: FlagsProps) => {
 
-    const { setCountrySelected } = useContext(CountriesContext)
+    const { selectCountry } = useContext(CountriesContext)
 
     return (
         <Button
@@ -36,7 +36,7 @@ export const Flags = ({countryDetails, i}: FlagsProps) => {
                 cursor: 'pointer',
                 color: 'white',
             }}
-            onClick={() => setCountrySelected(countryDetails) }
+            onClick={() => selectCountry(countryDetails) }
         >
             <Box
                 maxW="10"
