@@ -2,7 +2,6 @@ import { Box, Image, Link, Flex } from '@chakra-ui/react';
 import { logoTWG } from 'assets';
 
 
-
 export const Header = () => {
   return (
     <Flex 
@@ -27,7 +26,7 @@ export const Header = () => {
               <Image src={ logoTWG } alt="Travel Wings"/>  
             </Box>
 
-            <Box>
+            {/* <Box>
               <Link
                 color="blackAlpha.500"
                 p={4}
@@ -38,7 +37,7 @@ export const Header = () => {
                 p={4}
                 fontSize="md">
                   Contactanos</Link>
-            </Box>
+            </Box> */}
           </Flex>
     </Flex>
   )
