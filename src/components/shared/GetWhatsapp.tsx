@@ -19,6 +19,14 @@ export const GetWhatsapp = ({title}: Props) => {
   const { tel, handleFormChange, error } = useForm({tel: ''})
   const {countrySelected} = useContext(CountriesContext);
 
+  const sendWpp = () => {
+    const text = `https://api.whatsapp.com/send?phone=${process.env.REACT_APP_WPP_NUMBER}&text=Hola!!%20estoy%20interesado%20en%20ofertas%20en%20recibir%20ofertas%20de%20viaje%20a%20mi%20whatsapp`
+    const link = document.createElement('a');
+    link.setAttribute('href', text);
+    link.setAttribute('target', '_blank');
+    link.click();
+  }
+
   return (
     <Flex
       flexDir="column"
@@ -132,6 +140,7 @@ export const GetWhatsapp = ({title}: Props) => {
           <Button
               size="sm"
               disabled={error.error}
+              onClick={sendWpp}
               >Enviar</Button>
         </Flex>
       </Fade>
