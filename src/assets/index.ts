@@ -16,6 +16,7 @@ import { FeedingIcon } from 'assets/icons/FeedingIcon';
 import { HotelIcon } from 'assets/icons/HotelIcon';
 import { PlaneIcon } from 'assets/icons/PlaneIcon';
 import { ToursIcon } from 'assets/icons/ToursIcon';
+import { WhatsappIcon } from 'assets/icons/WhatsappIcon'
 
 /* PAYMENT METHODS */
 import amex from 'assets/payment_method/amex.png';
@@ -37,6 +38,7 @@ export {
     HotelIcon,
     PlaneIcon,
     ToursIcon,
+    WhatsappIcon,
     amex,
     bancolombia,
     mastercard,

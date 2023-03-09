@@ -23,7 +23,7 @@ export const Subscribe = () => {
               mb="4"
             >Para recibir nuestras ofertas al instante en tu Correo o Whatsapp, diligencia los siguientes campos y acepta</Text>
           
-          <GetWhatsapp title="Recibe nuestras ofertas por Whatsapp"/>
+          {/* <GetWhatsapp title="Recibe nuestras ofertas por Whatsapp"/> */}
           
           <GetEmail title="Recibe nuestras ofertas por Correo"/>
         </Box>
