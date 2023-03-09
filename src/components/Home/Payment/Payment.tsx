@@ -7,35 +7,39 @@ export const Payment = () => {
     <Box
         p="6"
         bgColor="white"
+        display="flex"
+        justifyContent="center"
         flexGrow={1}>
-        <Heading
-            fontSize="2xl"
-            color="blackAlpha.800"
-            mb="6"
-            >Recibimos todas las formas de pago</Heading>
-        <Text
-            fontSize="sm"
-            color="blackAlpha.800"
-            mb="8"
-            >Aceptamos todas las formas de pago para que el viaje de tus sueños sea una realidad</Text>
+          <Box w="container.lg">
+            <Heading
+                fontSize="2xl"
+                color="blackAlpha.800"
+                mb="6"
+                >Recibimos todas las formas de pago</Heading>
+            <Text
+                fontSize="sm"
+                color="blackAlpha.800"
+                mb="8"
+                >Aceptamos todas las formas de pago para que el viaje de tus sueños sea una realidad</Text>
 
-        <Flex
-          flexDirection="row"
-          justifyContent="space-between"
-          alignItems="center">
-          <Box>
-            <Image src={ amex } alt="Amex"/>
-          </Box>
-          <Box>
-            <Image src={ visa } alt="Visa"/>
-          </Box>
-          <Box>
-            <Image src={ bancolombia } alt="Bancolombia"/>
-          </Box>
-          <Box>
-            <Image src={ mastercard } alt="Mastercard"/>
-          </Box>
-        </Flex>
+            <Flex
+              flexDirection="row"
+              justifyContent="space-between"
+              alignItems="center">
+              <Box>
+                <Image src={ amex } alt="Amex"/>
+              </Box>
+              <Box>
+                <Image src={ visa } alt="Visa"/>
+              </Box>
+              <Box>
+                <Image src={ bancolombia } alt="Bancolombia"/>
+              </Box>
+              <Box>
+                <Image src={ mastercard } alt="Mastercard"/>
+              </Box>
+            </Flex>
+        </Box>
     </Box>
   )
 }
