@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Heading, Text, useDisclosure } from "@chakra-ui/react";
+import { Container, Flex, Heading, Text, useDisclosure } from "@chakra-ui/react";
 import { LegalDocsModal } from "components/LegalDocsModal";
 import { PRIVACY_POLICY_DOCUMENT, TERMS_CONDITIONS_DOCUMENT } from "data/legalDocuments";
 
