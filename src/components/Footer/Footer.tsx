@@ -20,7 +20,7 @@ export const Footer = () => {
         </Flex> 
 
         <Flex direction={['column', 'row']} justifyContent="space-between" alignItems={['center']}>
-          <Flex flexDirection="row">
+          <Flex flexDirection={["column", "row"]}>
             <Text 
               fontSize="s" 
               color="white"
@@ -31,7 +31,8 @@ export const Footer = () => {
               >
                 Terminos de servicio
             </Text>
-            <Text 
+            <Text
+              mb={["4", "0"]}
               fontSize="s" 
               color="white" 
               cursor="pointer"
