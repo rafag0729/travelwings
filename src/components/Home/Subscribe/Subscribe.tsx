@@ -1,5 +1,5 @@
 import { Box, Heading, Text } from "@chakra-ui/react"
-import { GetWhatsapp, GetEmail } from "components";
+import { GetEmail } from "components";
 
 
 
@@ -19,7 +19,7 @@ export const Subscribe = () => {
             >Suscribete a nuestras ofertas</Heading>
           <Text
               color="white"
-              fontSize="sm"
+              fontSize="md"
               mb="4"
             >Para recibir nuestras ofertas al instante en tu Correo o Whatsapp, diligencia los siguientes campos y acepta</Text>
           
