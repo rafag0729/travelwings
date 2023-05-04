@@ -17,7 +17,7 @@ export const Payment = () => {
                 mb="6"
                 >Recibimos todas las formas de pago</Heading>
             <Text
-                fontSize="sm"
+                fontSize="md"
                 color="blackAlpha.800"
                 mb="8"
                 >Aceptamos todas las formas de pago para que el viaje de tus sueños sea una realidad</Text>
