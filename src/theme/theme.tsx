@@ -16,7 +16,7 @@ export const theme = extendTheme({
         }
     },
     fonts: {
-        heading: `'Pacifico', sans-serif`,
+        heading: `'Montserrat', sans-serif`,
         body: `'Montserrat', sans-serif`,
       },
 })
