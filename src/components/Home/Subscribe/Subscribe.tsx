@@ -25,7 +25,7 @@ export const Subscribe = () => {
           
           {/* <GetWhatsapp title="Recibe nuestras ofertas por Whatsapp"/> */}
           
-          <GetEmail title="Recibe nuestras ofertas por Correo"/>
+          <GetEmail />
         </Box>
     </Box>
   )

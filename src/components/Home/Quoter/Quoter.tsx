@@ -54,7 +54,7 @@ export const Quoter = () => {
       >
         <GetWhatsapp title="Recibe tu cotización por Whatsapp" />
 
-        <GetEmail title='Recibe tu cotización por correo' />
+        <GetEmail />
       </Flex>
     </Container>
   )
