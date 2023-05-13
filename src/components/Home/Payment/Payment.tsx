@@ -14,11 +14,13 @@ export const Payment = () => {
             <Heading
                 fontSize="2xl"
                 color="blackAlpha.800"
+                textAlign="center"
                 mb="6"
                 >Recibimos todas las formas de pago</Heading>
             <Text
                 fontSize="md"
                 color="blackAlpha.800"
+                textAlign="center"
                 mb="8"
                 >Aceptamos todas las formas de pago para que el viaje de tus sueños sea una realidad</Text>
 
