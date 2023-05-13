@@ -1,6 +1,7 @@
 import { Container, Flex } from "@chakra-ui/react";
 import { WhatsappIcon } from "assets";
-import { Slider, Offers, Subscribe, Payment, Quoter } from "components";
+import { Slider, Subscribe, Payment } from "components";
+import { Cooperatives } from "components/Home/Cooperatives/Cooperatives";
 import { CountriesContextProvider } from "context";
 import { Fragment } from "react";
 
@@ -21,15 +22,19 @@ export const HomeScreen = () => {
       <CountriesContextProvider>
         <Slider />
           {/* <Offers /> */}
-          {/* <Flex
-            justifyContent="space-between"
+        <Subscribe />
+        <Container maxW="full" bgColor="white" display="flex" justifyContent="center">
+          <Flex
+            maxW="container.lg"
+            display="flex"
             flexDirection="row"
-            p="0"> */}
-            <Subscribe />
-            <Payment />
-          {/* </Flex> */}
-          {/* <Quoter /> */}
-          <WhatsappIcon onClick={sendWpp}/>
+            justifyContent="center">
+              <Payment />
+              <Cooperatives action={sendWpp}/>
+          </Flex>
+        </Container>
+        {/* <Quoter /> */}
+        <WhatsappIcon onClick={sendWpp}/>
       </CountriesContextProvider>
     </Fragment>
   )

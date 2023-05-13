@@ -6,11 +6,11 @@ export const Payment = () => {
   return (
     <Box
         p="6"
-        bgColor="white"
-        display="flex"
-        justifyContent="center"
-        flexGrow={1}>
-          <Box w="container.lg">
+        // display="flex"
+        // justifyContent="center"
+        flex={1}
+        >
+          {/* <Box w="container.lg"> */}
             <Heading
                 fontSize="2xl"
                 color="blackAlpha.800"
@@ -26,20 +26,12 @@ export const Payment = () => {
               flexDirection="row"
               justifyContent="space-between"
               alignItems="center">
-              <Box>
-                <Image src={ amex } alt="Amex"/>
-              </Box>
-              <Box>
-                <Image src={ visa } alt="Visa"/>
-              </Box>
-              <Box>
-                <Image src={ bancolombia } alt="Bancolombia"/>
-              </Box>
-              <Box>
-                <Image src={ mastercard } alt="Mastercard"/>
-              </Box>
+              <Box><Image src={ amex } alt="Amex"/></Box>
+              <Box><Image src={ visa } alt="Visa"/></Box>
+              <Box><Image src={ bancolombia } alt="Bancolombia"/></Box>
+              <Box><Image src={ mastercard } alt="Mastercard"/></Box>
             </Flex>
-        </Box>
+        {/* </Box> */}
     </Box>
   )
 }
