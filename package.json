@@ -17,7 +17,7 @@
     "@types/react-dom": "^17.0.2",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^0.27.2",
-    "firebase": "^9.15.0",
+    "firebase": "^9.22.0",
     "framer-motion": "^6.3.3",
     "html-react-parser": "^3.0.16",
     "react": "^17.0.2",
