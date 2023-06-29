@@ -3,24 +3,27 @@ import ReactDOM from 'react-dom';
 import { RouterProvider } from "react-router-dom";
 
 import { ContactInfoContextProvider } from 'context';
-import { ChakraProvider, Container } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import { theme } from 'theme/theme';
-import { Footer, Header } from 'components';
+import { Header } from 'components';
 
-import { router } from 'router/routes';
+import { router } from 'navigation/router/routes';
+import { Provider } from 'react-redux';
+import store from 'reduxStore'
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <ChakraProvider theme={ theme }>
-      <ContactInfoContextProvider>
-        <Container maxW="full" bg="blackAlpha.200" p="-0.5">
-          <Header />
-          <RouterProvider router={router} />
-          <Footer />
-        </Container>
-      </ContactInfoContextProvider>
+    <Provider store={store}>
+      <ChakraProvider theme={ theme }>
+        <ContactInfoContextProvider>
+          <>
+              <Header />
+              <RouterProvider router={router} />
+          </>
+        </ContactInfoContextProvider>
       </ChakraProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
