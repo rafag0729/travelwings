@@ -1,15 +1,27 @@
-import { Box, Heading } from "@chakra-ui/react";
-import { useRouteError } from "react-router-dom";
+import { Container, Heading, Text } from "@chakra-ui/react";
 
 export const ErrorScreen = () => {
-  const error : any = useRouteError();
-  console.error(error);
-
   return (
-    <Box width="100%" height="container.md">
-        <Heading>Página no encontrada!</Heading>
-
-      
-    </Box>
+    <Container
+      maxW="full"
+      centerContent
+      minH="3xl"
+      flexDirection="column"
+      justifyContent="center"
+    >
+        <Heading
+          bgColor="brand.red"
+          mb="10"
+          color="white"
+        >
+            Upps!
+        </Heading>
+        <Text
+          fontSize="6xl"
+          textAlign="center"
+        >
+          Contenido no encontrado
+          </Text>
+    </Container>
   );
 }
