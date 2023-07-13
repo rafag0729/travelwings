@@ -19,7 +19,7 @@ export const useFormValidation = <T extends Object>(initialForm: T) => {
   });
 
   const handleFormValidation = (name: keyof T, value: string) => {
-    let errorsValidated = {};
+    let errorsValidated = formErrors;
     const validation = formValidations(name, value);
     errorsValidated = {
       ...errorsValidated,

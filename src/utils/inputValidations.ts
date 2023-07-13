@@ -16,6 +16,10 @@ export const formValidations = (name: any, value: string = ''): ErrorType => {
     case 'tel':
       validation = validateTel(value);
       return validation;
+
+    case 'psw':
+      validation = validatePsw(value);
+      return validation;
   }
 
   return validation;
@@ -37,5 +41,13 @@ const validateTel = (number: string): ErrorType => {
   return {
       error: false,
       msg: ''
+  }
+}
+
+const validatePsw = (psw: string): ErrorType => {
+  if (psw.length <= 5) return {error: true, msg: 'La contraseña debe tener 6 digitos o más'};
+  return {
+    error: false,
+    msg: ''
   }
 }
