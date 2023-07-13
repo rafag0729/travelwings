@@ -10,7 +10,6 @@ export const Login = () => {
 
   const dispatch = useDispatch();
   const {email, psw, formErrors, handleFormChange} = useForm({email: '', psw: ''});
-
   const [loading, setLoading] = useState(false)
 
   const firebaseLogin = () => {
@@ -19,7 +18,6 @@ export const Login = () => {
       .then(({user}) => {
         user.getIdTokenResult()
           .then(token => {
-            console.log({token})
             dispatch(signIn({
               email: user.email,
               uid: user.uid,
