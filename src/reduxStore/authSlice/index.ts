@@ -6,7 +6,6 @@ const authSliceInitialState: AuthSliceProps = {
   user: null,
 };
 
-
 const authSlice = createSlice({
   name: 'auth',
   initialState: authSliceInitialState,
