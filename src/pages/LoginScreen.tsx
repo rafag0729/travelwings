@@ -6,7 +6,7 @@ import { signIn } from "reduxStore/authSlice";
 import { useForm } from 'hooks'
 import { useState } from "react";
 
-export const Login = () => {
+export const LoginScreen = () => {
 
   const dispatch = useDispatch();
   const {email, psw, formErrors, handleFormChange} = useForm({email: '', psw: ''});
