@@ -1,7 +1,14 @@
 import { HomeScreen, LoginScreen } from 'pages'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
-export const PublicRoutes = () => {
+interface PublicRoutesProps {
+  isAuthenticated: boolean;
+}
+
+export const PublicRoutes = ({isAuthenticated}: PublicRoutesProps) => {
+
+  if(isAuthenticated) return <Navigate to="admin" />
+
   return (
     <Routes>
       <Route path='/*' element={<HomeScreen />}/>

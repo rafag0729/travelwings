@@ -1,7 +1,14 @@
 import { AdminScreen } from 'pages'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
-export const PrivateRoutes = () => {
+interface PrivateRoutesProps {
+  isAuthenticated: boolean;
+}
+
+export const PrivateRoutes = ({isAuthenticated}: PrivateRoutesProps) => {
+
+  if(!isAuthenticated) return <Navigate to="/" />
+
   return (
     <Routes>
       <Route path='/' element={<AdminScreen />} />
