@@ -4,7 +4,7 @@ import { OfferItem } from 'components/Admin/OfferItem/OfferItem'
 
 
 
-export const AdminTW = () => {
+export const AdminScreen = () => {
   return (
     <Container maxW="full" mt="10">
       <Container maxW="container.lg" pt="2" minH="2xl" bg="white">
