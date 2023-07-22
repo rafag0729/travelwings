@@ -1,15 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { RouterProvider } from "react-router-dom";
 
 import { ContactInfoContextProvider } from 'context';
 import { ChakraProvider } from '@chakra-ui/react';
 import { theme } from 'theme/theme';
 import { Header } from 'components';
-
-import { router } from 'navigation/router/routes';
 import { Provider } from 'react-redux';
 import store from 'reduxStore'
+import { Navigation } from 'navigation/Navigation';
 
 
 ReactDOM.render(
@@ -18,8 +16,8 @@ ReactDOM.render(
       <ChakraProvider theme={ theme }>
         <ContactInfoContextProvider>
           <>
-              <Header />
-              <RouterProvider router={router} />
+            <Header />
+            <Navigation />
           </>
         </ContactInfoContextProvider>
       </ChakraProvider>
