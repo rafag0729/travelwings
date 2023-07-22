@@ -1,8 +1,33 @@
-import { Box, Image, Link, Flex } from '@chakra-ui/react';
+import { Box, Image, Flex, Button, Text } from '@chakra-ui/react';
 import { logoTWG } from 'assets';
+import { useState } from 'react';
+import { signOut as signOutFb } from 'firebase/auth'
+import auth from 'firebaseConfiguration/auth';
+import { signOut } from 'reduxStore/authSlice';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { RootState } from 'reduxStore';
 
 
 export const Header = () => {
+
+  const dispatch = useDispatch();
+  const [closeSessionLoading, setCloseSessionLoading] = useState(false)
+  const {logged, user} = useSelector(({auth}: RootState) => auth)
+
+  const closeSessionFirebase = () => {
+    setCloseSessionLoading(true);
+      signOutFb(auth)
+        .then(() => dispatch(signOut()))
+        .catch((err) => console.error('Error logging out firebase: ', err))
+        .finally(() => setCloseSessionLoading(false))
+  }
+
+  const emailFormatted = (email: string) => {
+    const index = email.indexOf('@');
+    return email.slice(0, index);
+  }
+
   return (
     <Flex 
         position="fixed"
@@ -26,18 +51,29 @@ export const Header = () => {
               <Image src={ logoTWG } alt="Travel Wings"/>  
             </Box>
 
-            {/* <Box>
-              <Link
-                color="blackAlpha.500"
-                p={4}
-                fontSize="md">
-                  Ofertas</Link>
-              <Link
-                color="blackAlpha.500"
-                p={4}
-                fontSize="md">
-                  Contactanos</Link>
-            </Box> */}
+            <Box>
+              { logged && (
+                  <> 
+                    <Flex
+                      align="center"
+                      direction="row">
+                        <Box>
+                        <Text
+                          mr="4"
+                          fontWeight="bold"
+                          color="red.500"
+                        >{emailFormatted(user?.email || '')}</Text>
+                      </Box>
+                      <Button
+                        colorScheme="red"
+                        onClick={closeSessionFirebase}
+                        isLoading={closeSessionLoading}
+                        >Cerrar sesión</Button>  
+                    </Flex>
+                  </>   
+                )
+              }
+            </Box>
           </Flex>
     </Flex>
   )
