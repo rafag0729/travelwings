@@ -1,4 +1,5 @@
 import { Box, Checkbox, CheckboxGroup, Stack } from '@chakra-ui/react'
+import { BsFillCreditCard2FrontFill } from 'react-icons/bs'
 import { AddInput, OfferHeading } from '../shared'
 
 
@@ -6,7 +7,10 @@ export const AdditionalsComponent = () => {
   return (
     <Box mb="6">
       <OfferHeading title='INCLUYE' />
-      <AddInput />
+      <AddInput 
+        placeholder='Añadir adicionales'
+        Icon={BsFillCreditCard2FrontFill}
+      />
       <CheckboxGroup colorScheme='teal' defaultValue={[]}>
         <Stack direction={['column']}>
           <Checkbox value='asistencia_medica'>Asistencia médica</Checkbox>

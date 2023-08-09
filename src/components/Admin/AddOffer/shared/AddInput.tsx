@@ -1,16 +1,22 @@
 import { IconButton, Input, InputGroup, InputLeftElement, InputRightElement } from '@chakra-ui/react'
+import { IconType } from 'react-icons';
 import { FaPlus } from 'react-icons/fa'
-import { GiPalmTree } from 'react-icons/gi'
 
-export const AddInput = () => {
+interface AddInputProps {
+  placeholder: string;
+  Icon: IconType
+}
+
+export const AddInput = ({ placeholder, Icon }: AddInputProps) => {
   return (
     <InputGroup mb="4">
       <InputLeftElement
         pointerEvents="none"
-        children={<GiPalmTree />}/> 
+        color='gray.300'
+        children={<Icon color='blackAlpha.100'/>}/> 
       <Input
         type="text"
-        placeholder='Añadir destino'
+        placeholder={placeholder}
         focusBorderColor="green.500"/>  
       <InputRightElement
         children={<IconButton 
