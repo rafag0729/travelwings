@@ -1,46 +1,71 @@
-import { Box, Radio, RadioGroup, Stack } from "@chakra-ui/react"
+import { Box, Button, Flex, Radio, RadioGroup, Stack } from "@chakra-ui/react"
 import { useState } from "react"
-import { CalendarInput, OfferHeading, TicketAirlineInput, TicketCityInput } from "../shared"
+import { OfferHeading, TicketInput } from "../shared"
 
+interface TicketsComponentProps {
+  getTicketDetails: (ticketDetail: any) => void;
+}
 
-export const TicketsComponent = () => {
+const ticketType = (type: 'ida' | 'regreso') => ({
+  type,
+  details: null,
+})
 
-  const [radioTicket, setRadioTicket] = useState('1')
+export const TicketsComponent = ({getTicketDetails}: TicketsComponentProps) => {
+
+  const [radioTicket, setRadioTicket] = useState('1');
+  const [expandTicketDetail, setExpandTicketDetail] = useState(false);
+
+  const onChangeRadioTicket = (ticketId: string) => {
+    setRadioTicket(ticketId);
+    handleRadioValue(ticketId)
+  }
+
+  const handleRadioValue = (value: string) => {
+    if (value === 'noTicket') return getTicketDetails([]);
+    if (value === 'ida') return getTicketDetails([ticketType(value)]);
+    if (value === 'regreso') return getTicketDetails([ticketType(value)]);
+    if (value === 'ambos') getTicketDetails([ticketType('ida'), ticketType('regreso')]);
+  }
 
   return (
     <Box mb="6">
       <OfferHeading title='TIQUETES' />
+      <Button
+        onClick={() => setExpandTicketDetail((prev) => !prev)}
+        size="xs"
+        variant="outline"
+        colorScheme="teal">
+        { !expandTicketDetail ? 'Expandir' : 'Esconder'} detalles de tiquete
+      </Button>
       <RadioGroup 
+        mt="4"
         colorScheme="teal"
-        onChange={setRadioTicket} 
+        onChange={onChangeRadioTicket} 
         value={radioTicket}>
         <Stack direction='column'>
-          <Radio value='1'>Sin tiquetes</Radio>
-          <Radio value='2'>Solo ida</Radio>
-          { radioTicket === '2' && (
-            <>
-              <TicketCityInput type='salida'/>
-              <CalendarInput type='salida'/>
-              <TicketAirlineInput />
-            </>
+          <Radio value='noTicket'>Sin tiquetes</Radio>
+          <Radio value='ida'>Solo ida</Radio>
+          { (radioTicket === '2' && expandTicketDetail) && (
+            <TicketInput
+              type="ida" 
+              getTicket={(value) => console.log(value)}
+              /> 
           )}
-          <Radio value='3'>Solo regreso</Radio>
-          { radioTicket === '3' && (
-            <>
-              <TicketCityInput type='regreso'/>
-              <CalendarInput type='regreso'/>
-              <TicketAirlineInput />
-            </>
+          <Radio value='regreso'>Solo regreso</Radio>
+          { (radioTicket === '3' && expandTicketDetail) && (
+            <TicketInput 
+              type="regreso" 
+              getTicket={(value) => console.log(value)}
+              /> 
           )}
-          <Radio value='4'>Ida y regreso</Radio>
-          { radioTicket === '4' && (
+          <Radio value='ambos'>Ida y regreso</Radio>
+          { (radioTicket === '4' && expandTicketDetail) && (
             <>
-              <TicketCityInput type='salida'/>
-              <CalendarInput type='salida'/>
-              <TicketAirlineInput />
-              <TicketCityInput type='regreso'/>
-              <CalendarInput type='regreso'/>
-              <TicketAirlineInput />
+              <TicketInput 
+                type="ambos" 
+                getTicket={() => {}}
+                />
             </>
           )}
         </Stack>
