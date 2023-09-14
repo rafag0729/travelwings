@@ -1,13 +1,14 @@
 import { Container, Image } from '@chakra-ui/react'
 import { useState } from 'react'
 import { AccommodationComponent, AdditionalsComponent, DestinyComponent, ExclusionsComponent, FeedingComponent, PreviewOffer, PricingComponent, TicketsComponent, TranslationComponent } from './components'
-import { TicketProps } from './components/interfaces';
+import { TicketProps, TranslationType } from './components/interfaces';
 
 
 export const AddOffer = () => {
 
   const [destinyList, setDestinyList] = useState<string[]>([]);
   const [ticketDetails, setticketDetails] = useState<TicketProps[]>([]);
+  const [translation, setTranslation] = useState<TranslationType>('no-translation')
   
   return (
     <Container 
@@ -16,6 +17,7 @@ export const AddOffer = () => {
         <PreviewOffer 
           destiny={destinyList}
           ticket={ticketDetails}
+          translation={translation}
         />
         <DestinyComponent 
           getDestinyList={(list) => setDestinyList(list)}
@@ -23,7 +25,9 @@ export const AddOffer = () => {
         <TicketsComponent 
           getTicketDetails={(ticket) => setticketDetails(ticket)}
         />
-        <TranslationComponent />
+        <TranslationComponent 
+          getTranslation={(id) => setTranslation(id)}
+        />
         <AccommodationComponent />  
         <FeedingComponent />
         <AdditionalsComponent />

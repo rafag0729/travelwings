@@ -16,3 +16,5 @@ export interface TicketPropsExtended extends TicketDetailsProps {
 }
 
 export type TicketType = 'ida' | 'regreso';
+
+export type TranslationType = 'no-translation' | 'translation';
