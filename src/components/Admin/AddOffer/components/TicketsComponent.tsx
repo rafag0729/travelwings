@@ -1,20 +1,23 @@
-import { Box, Button, Flex, Radio, RadioGroup, Stack } from "@chakra-ui/react"
+import { Box, Button, Radio, RadioGroup, Stack } from "@chakra-ui/react"
 import { useState } from "react"
 import { OfferHeading, TicketInput } from "../shared"
+import { TicketDetailsProps, TicketProps, TicketPropsExtended } from "./interfaces";
 
 interface TicketsComponentProps {
-  getTicketDetails: (ticketDetail: any) => void;
+  getTicketDetails: (ticketDetail: TicketProps[]) => void;
 }
 
-const ticketType = (type: 'ida' | 'regreso') => ({
+const ticketType = (type: 'ida' | 'regreso', details?: null | TicketDetailsProps) => ({
   type,
-  details: null,
+  details: !details ? null : details,
 })
 
 export const TicketsComponent = ({getTicketDetails}: TicketsComponentProps) => {
 
   const [radioTicket, setRadioTicket] = useState('1');
   const [expandTicketDetail, setExpandTicketDetail] = useState(false);
+
+  let tickets = [ticketType('ida'), ticketType('regreso')]
 
   const onChangeRadioTicket = (ticketId: string) => {
     setRadioTicket(ticketId);
@@ -25,7 +28,19 @@ export const TicketsComponent = ({getTicketDetails}: TicketsComponentProps) => {
     if (value === 'noTicket') return getTicketDetails([]);
     if (value === 'ida') return getTicketDetails([ticketType(value)]);
     if (value === 'regreso') return getTicketDetails([ticketType(value)]);
-    if (value === 'ambos') getTicketDetails([ticketType('ida'), ticketType('regreso')]);
+    if (value === 'ambos') getTicketDetails(tickets);
+  }
+
+  const handleMultiTicketComponent = (details: TicketPropsExtended) => {
+    tickets = tickets.map(t => {
+      if (t.type === details.type) return ticketType(t.type, {
+        city: details.city,
+        date: details.date,
+        airline: details.airline,
+      })
+      return t;
+    })
+    getTicketDetails(tickets)
   }
 
   return (
@@ -46,25 +61,25 @@ export const TicketsComponent = ({getTicketDetails}: TicketsComponentProps) => {
         <Stack direction='column'>
           <Radio value='noTicket'>Sin tiquetes</Radio>
           <Radio value='ida'>Solo ida</Radio>
-          { (radioTicket === '2' && expandTicketDetail) && (
+          { (radioTicket === 'ida' && expandTicketDetail) && (
             <TicketInput
               type="ida" 
-              getTicket={(value) => console.log(value)}
+              getTicket={(details) => getTicketDetails([ticketType('ida', details)])}
               /> 
           )}
           <Radio value='regreso'>Solo regreso</Radio>
-          { (radioTicket === '3' && expandTicketDetail) && (
+          { (radioTicket === 'regreso' && expandTicketDetail) && (
             <TicketInput 
               type="regreso" 
-              getTicket={(value) => console.log(value)}
+              getTicket={(details) => getTicketDetails([ticketType('regreso', details)])}
               /> 
           )}
           <Radio value='ambos'>Ida y regreso</Radio>
-          { (radioTicket === '4' && expandTicketDetail) && (
+          { (radioTicket === 'ambos' && expandTicketDetail) && (
             <>
               <TicketInput 
                 type="ambos" 
-                getTicket={() => {}}
+                getTicket={(details) => handleMultiTicketComponent(details)}
                 />
             </>
           )}

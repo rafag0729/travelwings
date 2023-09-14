@@ -7,3 +7,4 @@ export * from './OfferHeading';
 export * from './TagItem';
 export * from './TicketAirlineInput';
 export * from './TicketCityInput';
+export * from './TicketInput'
