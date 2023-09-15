@@ -1,7 +1,11 @@
-import { IconButton, Input, InputGroup, InputLeftElement, InputRightElement } from '@chakra-ui/react'
-import { FaCheck, FaPlane } from 'react-icons/fa'
+import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
+import { FaPlane } from 'react-icons/fa'
 
-export const TicketAirlineInput = () => {
+interface TicketAirlineInputProps {
+  getValue: (airline: string) => void;
+}
+
+export const TicketAirlineInput = ({getValue}: TicketAirlineInputProps) => {
   return (
     <InputGroup colorScheme="teal">
       <InputLeftElement
@@ -12,12 +16,8 @@ export const TicketAirlineInput = () => {
       />
       <Input
         focusBorderColor="green.500"
+        onChange={(e) => getValue(e.target.value)}
         placeholder={`Ingresa la aerolinea`} />
-      <InputRightElement children={<IconButton
-          colorScheme='teal'
-          size="sm"
-          aria-label='add airline'
-          icon={<FaCheck />}/>} />
     </InputGroup>
   )
 }

@@ -1,12 +1,13 @@
-import { IconButton, Input, InputGroup, InputLeftElement, InputRightElement } from "@chakra-ui/react"
-import { FaCheck, FaCity } from 'react-icons/fa'
+import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react"
+import { FaCity } from 'react-icons/fa'
 
 
 interface TicketCityInputProps {
-  type: 'salida' | 'regreso';
+  type: 'ida' | 'regreso';
+  getValue: (val: string) => void;
 }
 
-export const TicketCityInput = ({type}: TicketCityInputProps) => {
+export const TicketCityInput = ({type, getValue}: TicketCityInputProps) => {
   return (
     <InputGroup colorScheme="teal">
       <InputLeftElement
@@ -17,12 +18,8 @@ export const TicketCityInput = ({type}: TicketCityInputProps) => {
       />
       <Input 
         focusBorderColor="green.500"
+        onChange={(e) => getValue(e.target.value)}
         placeholder={`Ingresa la ciudad de ${type}`} />
-      <InputRightElement children={<IconButton
-          colorScheme='teal'
-          size="sm"
-          aria-label='Search database'
-          icon={<FaCheck />}/>} />
     </InputGroup>
   )
 }

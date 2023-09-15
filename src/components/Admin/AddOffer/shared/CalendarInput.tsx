@@ -1,12 +1,12 @@
-import { IconButton, Input, InputGroup, InputLeftElement, InputRightElement } from '@chakra-ui/react'
+import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import { AiFillCalendar } from 'react-icons/ai'
-import { FaCheck } from 'react-icons/fa';
 
 interface CalendarInputProps {
-  type: 'salida' | 'regreso' | 'inicio' | 'salida';
+  type: 'inicio' | 'salida';
+  getValue: (date: string) => void;
 }
 
-export const CalendarInput = ({type}: CalendarInputProps) => {
+export const CalendarInput = ({type, getValue}: CalendarInputProps) => {
   return (
     <InputGroup colorScheme="teal">
       <InputLeftElement
@@ -18,12 +18,8 @@ export const CalendarInput = ({type}: CalendarInputProps) => {
       <Input 
         focusBorderColor="green.500"
         type="date"
+        onChange={(e) => getValue(e.target.value)}
         placeholder={`Ingresa la fecha de ${type}`} />
-      <InputRightElement children={<IconButton
-          colorScheme='teal'
-          size="sm"
-          aria-label='Search database'
-          icon={<FaCheck />}/>} />
     </InputGroup>
   )
 }
