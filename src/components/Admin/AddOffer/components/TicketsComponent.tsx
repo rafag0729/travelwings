@@ -14,7 +14,7 @@ const ticketType = (type: 'ida' | 'regreso', details?: null | TicketDetailsProp
 
 export const TicketsComponent = ({getTicketDetails}: TicketsComponentProps) => {
 
-  const [radioTicket, setRadioTicket] = useState('1');
+  const [radioTicket, setRadioTicket] = useState('noTicket');
   const [expandTicketDetail, setExpandTicketDetail] = useState(false);
 
   let tickets = [ticketType('ida'), ticketType('regreso')]
