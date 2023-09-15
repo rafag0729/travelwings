@@ -9,7 +9,7 @@ interface TranslationComponentProps {
 
 export const TranslationComponent = ({getTranslation}: TranslationComponentProps) => {
 
-  const [radioTransport, setRadioTransport] = useState<TranslationType>('translation')
+  const [radioTransport, setRadioTransport] = useState<TranslationType>('no-translation')
 
   const setTranslation = (id: TranslationType) => {
     setRadioTransport(id);
