@@ -6,3 +6,4 @@ export * from './FeedingComponent';
 export * from './PricingComponent';
 export * from './TicketsComponent';
 export * from './TranslationComponent';
+export * from './PreviewOffer';
