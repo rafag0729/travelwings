@@ -1,6 +1,9 @@
-import { Box, Flex, Radio, RadioGroup, Stack } from '@chakra-ui/react'
+import { Box, Radio, RadioGroup, Stack } from '@chakra-ui/react'
 import { useState } from 'react'
-import { AddRoom, BaseInputText, CalendarInput, HotelStarSelect, OfferHeading, TagItem } from '../shared'
+import { OfferHeading } from '../shared'
+import { AirbnbInput } from '../shared/AirbnbInput'
+import { HostelInput } from '../shared/HostelInput'
+import { HotelInput } from '../shared/HotelInput'
 
 export const AccommodationComponent = () => {
 
@@ -16,34 +19,11 @@ export const AccommodationComponent = () => {
         <Stack direction='column'>
           <Radio value='1'>Sin alojamiento</Radio>
           <Radio value='2'>Hotel</Radio>
-          { radioAccommodation === '2' && (
-            <>
-              <BaseInputText />
-              <HotelStarSelect />
-              <CalendarInput type='inicio' />
-              <CalendarInput type='salida' />
-              <AddRoom />
-              <Flex>
-                <TagItem item="1xDoble" />
-                <TagItem item="1xTriple" />
-              </Flex>
-            </>
-          )}
+          { radioAccommodation === '2' && <HotelInput />}
           <Radio value='3'>Hostal</Radio>
-          { radioAccommodation === '3' && (
-            <>
-              <BaseInputText />
-              <CalendarInput type='inicio' />
-              <CalendarInput type='salida' />
-            </>
-          )}
+          { radioAccommodation === '3' && <HostelInput />}
           <Radio value='4'>AirBnB</Radio>
-          { radioAccommodation === '4' && (
-            <>
-              <CalendarInput type='inicio' />
-              <CalendarInput type='salida' />
-            </>
-          )}
+          { radioAccommodation === '4' && <AirbnbInput />}
         </Stack>
       </RadioGroup>
     </Box>
