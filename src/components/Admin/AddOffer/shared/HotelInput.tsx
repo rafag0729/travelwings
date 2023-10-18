@@ -3,6 +3,7 @@ import { useMemo, useState } from "react"
 import { isAfterDate, isBeforeToday, ValidationErrorType, validationResult } from "utils/dateValidations"
 import { HotelDetailsProps, RoomDetailType } from "../components/interfaces"
 import { AddRoom } from "./AddRoom"
+import { BaseInputText } from "./BaseInputText"
 import { CalendarInput } from "./CalendarInput"
 import { HotelStarSelect } from "./HotelStarSelect"
 
@@ -53,9 +54,15 @@ export const HotelInput = ({getHotelInputDetails, hotelType}: HotelInputProps) =
   return (
     <>
       { hotelType === 'hotel' && (
-        <HotelStarSelect 
-          getHotelStartType={(value) => setHotelStarType(value)}
-        />
+        <>
+          <BaseInputText
+            title='hotel'
+            getValue={(value) => setHotelName(value)}
+          />
+          <HotelStarSelect 
+            getHotelStartType={(value) => setHotelStarType(value)}
+          />
+        </>
       )}
       <Flex 
         dir="column">
