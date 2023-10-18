@@ -47,7 +47,7 @@ interface TicketProps {
 const Ticket = ({label = true, type, action = true, getTicket}: TicketProps) => {
 
   const [city, setCity] = useState('');
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState<Date | null>(null);
   const [airline, setAirline] = useState('');
 
   return (
