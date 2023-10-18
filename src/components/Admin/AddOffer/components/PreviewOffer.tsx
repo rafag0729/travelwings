@@ -1,12 +1,12 @@
-import { Badge, Box, Button, Container, Divider, Flex, Heading, Image, List, ListIcon, ListItem, Text, UnorderedList } from "@chakra-ui/react"
-import { OfferBox } from "components/Home/Offers/OfferBox"
+import { Badge, Box, Button, Container, Flex, Heading, Image, List, ListIcon, ListItem, Text, Tooltip } from "@chakra-ui/react"
 import { OffersInt } from "interfaces"
-import { Fragment, useState } from "react"
+import { useState } from "react"
 import { RxOpenInNewWindow } from "react-icons/rx"
-import { MdAddShoppingCart, MdEmojiTransportation, MdFastfood, MdLocalHotel, MdOutlineEmojiTransportation, MdOutlineNoFood } from "react-icons/md"
-import { AiFillFolderAdd, AiFillStop } from "react-icons/ai"
+import { MdAddShoppingCart, MdFastfood } from "react-icons/md"
+import { AiFillInfoCircle, AiFillStop } from "react-icons/ai"
 import { FaBed, FaHotel, FaPlane } from "react-icons/fa"
-import { StringOrNumber, TicketProps } from "./interfaces"
+import { AccomodationTypeAndDetails, StringOrNumber, TicketProps } from "./interfaces"
+import { differenceInDays } from "date-fns"
 
 const ITEM: OffersInt = {
   place: '', 
@@ -26,9 +26,10 @@ interface PreviewOfferProps {
   ticket: TicketProps[];
   translation: 'no-translation' | 'translation';
   food: StringOrNumber[];
+  accomodation: AccomodationTypeAndDetails;
 }
 
-export const PreviewOffer = ({destiny, ticket, translation, food}: PreviewOfferProps) => {
+export const PreviewOffer = ({destiny, ticket, translation, accomodation, food}: PreviewOfferProps) => {
 
   const [watchPreview, setWatchPreview] = useState(false);
 
@@ -38,7 +39,18 @@ export const PreviewOffer = ({destiny, ticket, translation, food}: PreviewOfferP
     if (ticket[0].type === 'regreso') return 'Solo regreso'
     return '';
   }
-  
+
+  const calculateAccomodation = (): string => {
+    const {name, startDate, endDate} = accomodation.details;
+    const hotelName = name || '';
+    let daysNights = '';
+    if (startDate && endDate) {
+      const daysDifference = differenceInDays(endDate, startDate);
+      daysNights = `${daysDifference + 1}D / ${daysDifference}N`
+    }
+    return `${accomodation.type}: ${hotelName} ${daysNights}`;
+  }
+
   return (
     <>
       <Container
@@ -92,9 +104,13 @@ export const PreviewOffer = ({destiny, ticket, translation, food}: PreviewOfferP
                         <ListIcon as={FaPlane} color='teal' />
                         Tiquetes aeros: {ticketDescription()}</ListItem>
                     )}
-                    <ListItem>
-                      <ListIcon as={FaBed} color='teal' />
-                      4 días / 3 noches de alojamiento</ListItem>
+                    { accomodation.type !== 'no-accomodation' && (
+                      <ListItem 
+                        textTransform="capitalize"
+                      >
+                        <ListIcon as={FaBed} color='teal' />
+                        {calculateAccomodation()}</ListItem>
+                    )}
                     { translation === 'translation' && (
                       <ListItem>
                         <ListIcon as={FaHotel} color='teal' />
@@ -102,10 +118,17 @@ export const PreviewOffer = ({destiny, ticket, translation, food}: PreviewOfferP
                       </ListItem>
                     )}
                     { food.length >= 1 && (
-                      <ListItem>
-                        <ListIcon as={MdFastfood} color='teal' />
-                        Alimentación
-                      </ListItem>
+                      <Tooltip label={food.join(', ')}>
+                        <ListItem>
+                          <ListIcon as={MdFastfood} color='teal' />
+                          Alimentación
+                          <ListIcon 
+                            w={3}
+                            mb="1.5"
+                            as={AiFillInfoCircle} 
+                            color='teal' />
+                        </ListItem>
+                      </Tooltip>
                     )}
                     <ListItem>
                       <ListIcon as={MdAddShoppingCart} color='teal' />
