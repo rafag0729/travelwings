@@ -1,15 +1,19 @@
 import { Container, Image } from '@chakra-ui/react'
 import { useState } from 'react'
 import { AccommodationComponent, AdditionalsComponent, DestinyComponent, ExclusionsComponent, FeedingComponent, PreviewOffer, PricingComponent, TicketsComponent, TranslationComponent } from './components'
-import { StringOrNumber, TicketProps, TranslationType } from './components/interfaces';
+import { AccomodationTypeAndDetails, HOTEL_DETAILS, StringOrNumber, TicketProps, TranslationType } from './components/interfaces';
 
 
 export const AddOffer = () => {
 
   const [destinyList, setDestinyList] = useState<string[]>([]);
   const [ticketDetails, setticketDetails] = useState<TicketProps[]>([]);
-  const [translation, setTranslation] = useState<TranslationType>('no-translation')
-  const [feedingValues, setFeedingValues] = useState<StringOrNumber[]>([])
+  const [translation, setTranslation] = useState<TranslationType>('no-translation');
+  const [accomodationValue, setAccomodationValue] = useState<AccomodationTypeAndDetails>({
+    type: 'no-accomodation',
+    details: HOTEL_DETAILS
+  })
+  const [feedingValues, setFeedingValues] = useState<StringOrNumber[]>([]);
   
   return (
     <Container 
@@ -19,6 +23,7 @@ export const AddOffer = () => {
           destiny={destinyList}
           ticket={ticketDetails}
           translation={translation}
+          accomodation={accomodationValue}
           food={feedingValues}
         />
         <DestinyComponent 
@@ -30,7 +35,9 @@ export const AddOffer = () => {
         <TranslationComponent 
           getTranslation={(id) => setTranslation(id)}
         />
-        <AccommodationComponent />  
+        <AccommodationComponent 
+          getAccomodationValues={(accomodation) => setAccomodationValue(accomodation)}
+        />  
         <FeedingComponent 
           getFeedingValues={(food) => setFeedingValues(food)}
         />
