@@ -21,18 +21,8 @@ export const BaseInputText = ({title, getValue}: BaseInputTextProps) => {
         type="text"
         placeholder={`Añadir nombre de ${title}`}
         focusBorderColor="green.500"
-        onChange={({target}) => {
-          setValue(target.value)
-        }}
-        />  
-      <InputRightElement
-        children={<IconButton 
-          colorScheme="teal"
-          size="sm"
-          aria-label="add-offer"
-          disabled={value.length <= 2}
-          onClick={() => getValue(value)}
-          icon={<FaPlus />}/>}/>
+        onChange={({target}) => getValue(target.value)}
+        /> 
     </InputGroup>
   )
 }
