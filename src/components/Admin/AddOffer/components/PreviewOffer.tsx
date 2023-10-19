@@ -28,9 +28,10 @@ interface PreviewOfferProps {
   food: StringOrNumber[];
   accomodation: AccomodationTypeAndDetails;
   additionals: StringOrNumber[];
+  exclusions: string[];
 }
 
-export const PreviewOffer = ({destiny, ticket, translation, accomodation, food, additionals}: PreviewOfferProps) => {
+export const PreviewOffer = ({destiny, ticket, translation, accomodation, food, additionals, exclusions}: PreviewOfferProps) => {
 
   const [watchPreview, setWatchPreview] = useState(false);
 
@@ -139,10 +140,14 @@ export const PreviewOffer = ({destiny, ticket, translation, accomodation, food, 
                         </ListItem>
                       </Tooltip>
                     }
-                    <ListItem>
-                      <ListIcon as={AiFillStop} color='teal' />
-                      No incluye:
-                    </ListItem>
+                    { exclusions.length > 0 && (
+                      <Tooltip label={exclusions.join(', ')}>
+                        <ListItem>
+                          <ListIcon as={AiFillStop} color='teal' />
+                          No incluye
+                        </ListItem>
+                      </Tooltip>
+                    )}
                   </List>
                   
                   <Box mt='2'>
