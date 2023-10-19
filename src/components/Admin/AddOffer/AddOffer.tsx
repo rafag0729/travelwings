@@ -14,6 +14,7 @@ export const AddOffer = () => {
     details: HOTEL_DETAILS
   })
   const [feedingValues, setFeedingValues] = useState<StringOrNumber[]>([]);
+  const [additionals, setAdditionals] = useState<StringOrNumber[]>([])
   
   return (
     <Container 
@@ -25,6 +26,7 @@ export const AddOffer = () => {
           translation={translation}
           accomodation={accomodationValue}
           food={feedingValues}
+          additionals={additionals}
         />
         <DestinyComponent 
           getDestinyList={(list) => setDestinyList(list)}
@@ -41,7 +43,9 @@ export const AddOffer = () => {
         <FeedingComponent 
           getFeedingValues={(food) => setFeedingValues(food)}
         />
-        <AdditionalsComponent />
+        <AdditionalsComponent 
+          getAdditionalsList={(addons) => setAdditionals(addons)}
+        />
         <ExclusionsComponent />
         <PricingComponent />
         <Image

@@ -1,4 +1,4 @@
-import { Badge, Box, Button, Container, Flex, Heading, Image, List, ListIcon, ListItem, Text, Tooltip } from "@chakra-ui/react"
+import { Badge, Box, Button, Container, Flex, Heading, Image, List, ListIcon, ListItem, Popover, PopoverTrigger, Text, Tooltip } from "@chakra-ui/react"
 import { OffersInt } from "interfaces"
 import { useState } from "react"
 import { RxOpenInNewWindow } from "react-icons/rx"
@@ -27,9 +27,10 @@ interface PreviewOfferProps {
   translation: 'no-translation' | 'translation';
   food: StringOrNumber[];
   accomodation: AccomodationTypeAndDetails;
+  additionals: StringOrNumber[];
 }
 
-export const PreviewOffer = ({destiny, ticket, translation, accomodation, food}: PreviewOfferProps) => {
+export const PreviewOffer = ({destiny, ticket, translation, accomodation, food, additionals}: PreviewOfferProps) => {
 
   const [watchPreview, setWatchPreview] = useState(false);
 
@@ -130,10 +131,14 @@ export const PreviewOffer = ({destiny, ticket, translation, accomodation, food}:
                         </ListItem>
                       </Tooltip>
                     )}
-                    <ListItem>
-                      <ListIcon as={MdAddShoppingCart} color='teal' />
-                      Adicionales:
-                    </ListItem>
+                    { additionals.length > 0 &&
+                      <Tooltip label={additionals.join(', ')}>
+                        <ListItem>
+                          <ListIcon as={MdAddShoppingCart} color='teal' />
+                          Adicionales
+                        </ListItem>
+                      </Tooltip>
+                    }
                     <ListItem>
                       <ListIcon as={AiFillStop} color='teal' />
                       No incluye:
