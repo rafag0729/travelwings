@@ -1,43 +1,34 @@
-import { Box, NumberInput, NumberInputField, Text } from '@chakra-ui/react'
-import { useState } from 'react'
-import { OfferHeading } from '../shared'
+import { Box, Flex, Radio, RadioGroup, Stack } from '@chakra-ui/react'
+import { AddBooking, AddPersonsNumber, AddPrice, AddTotal, CurrencySelection, OfferHeading, OfferSubheading } from '../shared'
 
 export const PricingComponent = () => {
-
-  const [value, setValue] = useState('1.53')
-
-  const format = (val: string) => `$` + val
-  const parse = (val: string) => val.replace(/^\$/, '')
-
   return (
     <Box mb="6">
       <OfferHeading title='COSTOS' />
-      <NumberInput
-        onChange={(value) => setValue(parse(value))}
-        value={format(value)}
-        defaultValue={0} 
-        precision={2}>
-        <Text>Reserva con: </Text>
-        <NumberInputField />
-      </NumberInput>
+      
+      <CurrencySelection />
+      
+      <RadioGroup colorScheme="teal">
+        <Stack direction='column'>
+          <Radio value='totals'>Añadir costo total</Radio>
+          <Radio value='pp'>Añadir costo por persona</Radio>
+        </Stack>
+      </RadioGroup>
 
-      <NumberInput
-        onChange={(value) => setValue(parse(value))}
-        value={format(value)}
-        defaultValue={0} 
-        precision={2}>
-        <Text>Costo total: </Text>
-        <NumberInputField />
-      </NumberInput>
+      <Flex 
+        justifyContent="space-between"
+        direction="row">
+        <Flex>
+          <AddPrice />
+          <AddPersonsNumber />
+        </Flex>
+        <AddTotal />
+      </Flex>
 
-      <NumberInput
-        onChange={(value) => setValue(parse(value))}
-        value={format(value)}
-        defaultValue={0} 
-        precision={2}>
-        <Text>Costo por persona: </Text>
-        <NumberInputField />
-      </NumberInput>
+      <Flex direction="row" justifyContent="space-between">
+        <AddBooking />
+        <AddTotal />
+      </Flex>
     </Box>
   )
 }
