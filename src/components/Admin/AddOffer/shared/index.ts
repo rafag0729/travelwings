@@ -4,7 +4,13 @@ export * from './BaseInputText';
 export * from './CalendarInput';
 export * from './HotelStarSelect';
 export * from './OfferHeading';
+export * from './OfferSubheading';
 export * from './TagItem';
 export * from './TicketAirlineInput';
 export * from './TicketCityInput';
-export * from './TicketInput'
+export * from './TicketInput';
+export * from './CurrencySelection';
+export * from './AddPrice';
+export * from './AddPersonsNumber';
+export * from './AddTotal';
+export * from './AddBooking';
