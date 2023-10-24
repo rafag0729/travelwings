@@ -76,7 +76,7 @@ export const PreviewOffer = ({destiny, ticket, translation, accomodation, food, 
             <Box
               overflow='hidden'
               borderRadius='2xl'
-              boxShadow='lg'
+              boxShadow='dark-lg'
               >
               <Flex 
                 dir="row" 
