@@ -6,9 +6,10 @@ interface AddBookingProps {
     type: BookingOptionsType,
     bookingValue: string,
   }) => void;
+  type: 'pp' | 'totals';
 }
 
-export const AddBooking = ({getBookingDetails}: AddBookingProps) => {
+export const AddBooking = ({getBookingDetails, type}: AddBookingProps) => {
 
   const [bookingSelection, setBookingSelection] = useState<BookingOptionsType>(enumBookingOptions.PERCENTAGE)
 
@@ -17,22 +18,25 @@ export const AddBooking = ({getBookingDetails}: AddBookingProps) => {
   const handleBookingSelection = (type: BookingOptionsType) => {
     setBookingSelection(type)
     setInputValue('0');
+    getBookingDetails({
+      type: type,
+      bookingValue: '0'
+    })
   }
 
   return (
     <Flex
       direction="column"
-      maxW="48"
       flexGrow={0}>
-      <Text fontSize="sm">{bookingSelection === enumBookingOptions.PERCENTAGE ? 'Reserva en porcentaje' : 'Reserva en moneda'}</Text>
+      <Text fontSize="sm">{bookingSelection === enumBookingOptions.PERCENTAGE ? 'Reserva en porcentaje' : `Reserva ${type === 'totals' ? 'total' : 'por persona'} en moneda`}</Text>
       <InputGroup>
         { bookingSelection === enumBookingOptions.CURRENCY && <InputLeftAddon children="$"/>}
         <Input 
           defaultValue={0}
-          max={bookingSelection === enumBookingOptions.PERCENTAGE ? 100 : undefined}
-          type="number" 
+          type="number"
           value={inputValue}
           onChange={({target}) => {
+            if (bookingSelection === 'percentage' && Number(target.value) > 100) return;
             setInputValue(target.value);
             getBookingDetails({
               type: bookingSelection,
@@ -59,7 +63,7 @@ export const AddBooking = ({getBookingDetails}: AddBookingProps) => {
   )
 }
 
-type BookingOptionsType = 'percentage' | 'currency';
+export type BookingOptionsType = 'percentage' | 'currency';
 
 enum enumBookingOptions {
   PERCENTAGE = 'percentage',
