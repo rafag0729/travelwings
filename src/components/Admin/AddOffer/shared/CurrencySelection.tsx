@@ -1,6 +1,19 @@
 import { Button, ButtonGroup, Flex, Text } from '@chakra-ui/react'
+import { useState } from 'react'
 
-export const CurrencySelection = () => {
+interface CurrencySelectionProps {
+  getCurrencySelected: (currency: CurrencyOptions) => void;
+}
+
+export const CurrencySelection = ({getCurrencySelected}: CurrencySelectionProps) => {
+
+  const [currencySelected, setCurrencySelected] = useState<CurrencyOptions>(CurrencySelectionOptios.COP);
+
+  const handleCurrencySelection = (type: CurrencyOptions) => {
+    setCurrencySelected(type);
+    getCurrencySelected(type);
+  }
+
   return (
     <Flex
       mb="4"
@@ -9,10 +22,24 @@ export const CurrencySelection = () => {
       <ButtonGroup
         colorScheme="teal"
         size="xs">
-        <Button>Peso colombiano</Button>
-        <Button>Dolar estadounidense</Button>
-        <Button>Dolar estadounidense</Button>
+        <Button
+          isActive={currencySelected === CurrencySelectionOptios.COP ? true : false} 
+          onClick={() => handleCurrencySelection(CurrencySelectionOptios.COP)}>Peso colombiano</Button>
+        <Button
+          isActive={currencySelected === CurrencySelectionOptios.USD ? true : false} 
+          onClick={() => handleCurrencySelection(CurrencySelectionOptios.USD)}>Dolar estadounidense</Button>
+        <Button
+          isActive={currencySelected === CurrencySelectionOptios.EUR ? true : false} 
+          onClick={() => handleCurrencySelection(CurrencySelectionOptios.EUR)}>Dolar estadounidense</Button>
       </ButtonGroup>
     </Flex>
   )
+}
+
+export type CurrencyOptions = 'cop' | 'usd' | 'eur';
+
+enum CurrencySelectionOptios {
+  COP = 'cop',
+  USD = 'usd',
+  EUR = 'eur',
 }
