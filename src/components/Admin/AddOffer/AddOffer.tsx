@@ -1,8 +1,7 @@
 import { Container, Image } from '@chakra-ui/react'
 import { useState } from 'react'
 import { AccommodationComponent, AdditionalsComponent, DestinyComponent, ExclusionsComponent, FeedingComponent, PreviewOffer, PricingComponent, TicketsComponent, TranslationComponent } from './components'
-import { AccomodationTypeAndDetails, HOTEL_DETAILS, StringOrNumber, TicketProps, TranslationType } from './components/interfaces';
-
+import { AccomodationTypeAndDetails, HOTEL_DETAILS, PricingDetailsType, StringOrNumber, TicketProps, TranslationType } from './components/interfaces';
 
 export const AddOffer = () => {
 
@@ -16,6 +15,16 @@ export const AddOffer = () => {
   const [feedingValues, setFeedingValues] = useState<StringOrNumber[]>([]);
   const [additionals, setAdditionals] = useState<StringOrNumber[]>([])
   const [exclusions, setExclusions] = useState<string[]>([]);
+  const [pricingDetails, setPricingDetails] = useState<PricingDetailsType>({
+    currency: 'cop',
+    costSelection: 'totals',
+    bookingDetails: {
+      type: 'currency',
+      bookingValue: '',
+    },
+    personsNumber: 1,
+    price: ''
+  })
   
   return (
     <Container 
@@ -51,7 +60,10 @@ export const AddOffer = () => {
         <ExclusionsComponent 
           getExclusionsList={(list) => setExclusions(list)}
         />
-        <PricingComponent />
+        <PricingComponent 
+          pricingDetails={pricingDetails}
+          setPricingDetails={setPricingDetails}
+        />
         <Image
           borderStyle="dashed"
           borderColor="green.300"
